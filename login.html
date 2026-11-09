@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Knitworks CRM · Log in</title>
+  <style>
+    :root { --bg1:#071a2c; --bg2:#0b2e45; --bg3:#0d3b3a; --glass:rgba(255,255,255,.07); --line:rgba(255,255,255,.12); --text:#e8f1f8; --muted:#9db3c6; --blue:#4c9bff; --green:#3fcf8e; --red:#ff6b6b; color-scheme:dark; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:16px; color:var(--text);
+      font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background: radial-gradient(900px 500px at 15% -10%, rgba(76,155,255,.28), transparent 60%),
+                  radial-gradient(800px 500px at 95% 10%, rgba(63,207,142,.18), transparent 60%),
+                  linear-gradient(160deg, var(--bg2), var(--bg1) 45%, var(--bg3)); }
+    form { width:100%; max-width:360px; background:var(--glass); border:1px solid var(--line); border-radius:22px; padding:28px;
+      backdrop-filter: blur(16px); display:grid; gap:14px; animation: rise .45s cubic-bezier(.2,.7,.2,1) both; }
+    .logo { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; font-weight:800; color:#fff;
+      background:linear-gradient(140deg,var(--blue),var(--green)); }
+    h1 { margin:6px 0 0; font-size:24px; } p { margin:0; color:var(--muted); font-size:13.5px; }
+    label { display:grid; gap:5px; font-size:13px; color:var(--muted); }
+    input { font:inherit; color:var(--text); background:rgba(0,0,0,.25); border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+    input:focus { outline:2px solid rgba(76,155,255,.6); outline-offset:1px; }
+    button { font:inherit; font-weight:600; border:0; border-radius:12px; padding:11px; background:var(--blue); color:#fff; cursor:pointer; }
+    .err { color:var(--red); min-height:1.2em; font-size:13px; }
+    @keyframes rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+  <form id="f">
+    <div class="logo">K</div>
+    <div><h1>Knitworks CRM</h1><p>Demo with made-up sample data. Changes stay in your browser only.</p></div>
+    <label>User <input name="username" autocomplete="username" required autofocus></label>
+    <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+    <div class="err" id="err" role="alert"></div>
+    <button>Log in</button>
+  </form>
+  <script src="demo.js"></script>
+  <script>
+    document.getElementById("f").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target), err = document.getElementById("err");
+      err.textContent = "";
+      try {
+        const r = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: fd.get("username"), password: fd.get("password") }) });
+        if (r.ok) { location.href = "index.html"; return; }
+        err.textContent = (await r.json()).error || "Could not log in.";
+      } catch (x) { err.textContent = "No connection to the server."; }
+    });
+  </script>
+</body>
+</html>
