@@ -38,7 +38,7 @@
   }
   const json = (code, obj) => new Response(JSON.stringify(obj), { status: code, headers: { "Content-Type": "application/json" } });
   const me = () => DB.people.find((p) => p.username === "admin") || { id: 0, name: "Manager" };
-  const audit = (action, entity, id, summary) => { DB.audit.unshift({ id: ++DB.next, at: nowStr(), user_id: me().id, user_name: "Manager (demo)", action, entity, entity_id: id, summary: String(summary || "").slice(0, 300) }); };
+  const audit = (action, entity, id, summary) => { DB.audit.unshift({ id: ++DB.next, at: nowStr(), user_id: me().id, user_name: "Demo Manager", action, entity, entity_id: id, summary: String(summary || "").slice(0, 300) }); };
 
   function bootstrap() {
     const admin = DB.roles.find((r) => r.name === "Admin");
@@ -57,7 +57,7 @@
       d.loads++; if (l.accuracy != null) { d.acc += l.accuracy; d.n++; } });
     const feed_days = Object.values(days).map((d) => ({ operator: d.operator, day: d.day, loads: d.loads, accuracy: d.n ? Math.round((d.acc / d.n) * 10) / 10 : null })).sort((a, b) => a.day.localeCompare(b.day));
     const m = me();
-    return { me: { id: m.id, name: "Manager (demo)", username: DEMO_USER, role: "Admin" }, perms, today: isoDay(new Date()), modules: DB.modules,
+    return { me: { id: m.id, name: "Demo Manager", username: DEMO_USER, role: "Admin" }, perms, today: isoDay(new Date()), modules: DB.modules,
       customers: DB.customers, vendors: DB.vendors, contacts: DB.contacts, deals: DB.deals, calls: DB.calls, tasks: DB.tasks,
       people: DB.people, roles: DB.roles, projects: DB.projects, project_steps: DB.project_steps, project_updates: DB.project_updates,
       emails: DB.emails, farm: DB.farm, lang: DB.lang, feed_workers, feed_days,
@@ -72,8 +72,8 @@
     if (id == null) {
       const req = LABEL[ent];
       if (!String(data[req] || "").trim()) return json(400, { error: `${req} is required` });
-      if (ent === "project_updates") Object.assign(data, { at: ts.slice(0, 16), author: "Manager (demo)" });
-      if (ent === "emails") Object.assign(data, { at: ts.slice(0, 16), sent_by: "Manager (demo)" });
+      if (ent === "project_updates") Object.assign(data, { at: ts.slice(0, 16), author: "Demo Manager" });
+      if (ent === "emails") Object.assign(data, { at: ts.slice(0, 16), sent_by: "Demo Manager" });
       if (ent === "roles" && !data.perms) { data.perms = {}; DB.modules.forEach((mm) => (data.perms[mm] = "none")); }
       const rec = Object.assign({ id: ++DB.next, sample: 0, created: ts, updated: ts }, data);
       list.push(rec); audit("created", ent, rec.id, rec[LABEL[ent]]); save(); return json(200, rec);
