@@ -4,7 +4,12 @@
    visitors out; it is not security (the files are public). Only made-up sample data is included. */
 (function () {
   "use strict";
-  const DEMO_USER = "manager", DEMO_PASS = "knitworks-demo";
+  // Only a SHA-256 fingerprint of the demo password is stored, so the password cannot be read from these public files.
+  const DEMO_USER = "admin", DEMO_PASS_SHA256 = "8773c180316bf78e7b205bd0422a4431b0d4ce980cce3ae9581693860956922b";
+  async function sha256(text) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+    return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
   const KEY = "kwdemo:db:v1", SESS = "kwdemo:session";
   const realFetch = window.fetch.bind(window);
   const pad = (n) => String(n).padStart(2, "0");
@@ -57,7 +62,7 @@
       d.loads++; if (l.accuracy != null) { d.acc += l.accuracy; d.n++; } });
     const feed_days = Object.values(days).map((d) => ({ operator: d.operator, day: d.day, loads: d.loads, accuracy: d.n ? Math.round((d.acc / d.n) * 10) / 10 : null })).sort((a, b) => a.day.localeCompare(b.day));
     const m = me();
-    return { me: { id: m.id, name: "Demo Manager", username: DEMO_USER, role: "Admin" }, perms, today: isoDay(new Date()), modules: DB.modules,
+    return { me: { id: m.id, name: "Admin", username: DEMO_USER, role: "Admin" }, perms, today: isoDay(new Date()), modules: DB.modules,
       customers: DB.customers, vendors: DB.vendors, contacts: DB.contacts, deals: DB.deals, calls: DB.calls, tasks: DB.tasks,
       people: DB.people, roles: DB.roles, projects: DB.projects, project_steps: DB.project_steps, project_updates: DB.project_updates,
       emails: DB.emails, farm: DB.farm, lang: DB.lang, feed_workers, feed_days,
@@ -87,7 +92,7 @@
   async function handle(method, path, body) {
     await load();
     if (path === "/api/login") {
-      if (body.username === DEMO_USER && body.password === DEMO_PASS) { sessionStorage.setItem(SESS, "1"); return json(200, { ok: true }); }
+      if (body.username === DEMO_USER && (await sha256(String(body.password || ""))) === DEMO_PASS_SHA256) { sessionStorage.setItem(SESS, "1"); return json(200, { ok: true }); }
       return json(401, { error: "Wrong user or password." });
     }
     if (path === "/api/public/book") {
