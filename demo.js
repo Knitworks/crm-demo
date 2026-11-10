@@ -10,14 +10,14 @@
     const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
     return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
   }
-  const KEY = "kwdemo:db:v2", SESS = "kwdemo:session";
+  const KEY = "kwdemo:db:v3", SESS = "kwdemo:session";
   const realFetch = window.fetch.bind(window);
   const pad = (n) => String(n).padStart(2, "0");
   const isoDay = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
   const nowStr = () => { const d = new Date(); return `${isoDay(d)} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; };
   const DATE_FIELDS = ["at", "day", "contract_start", "contract_end", "last_contact", "expected", "deadline", "done_on", "start", "due", "last_booking", "reported", "since",
     "opened", "resolved_on", "valid_from", "valid_until"];
-  const TABLES = ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "roles", "projects", "project_steps", "project_updates", "emails", "feed_loads", "audit", "cases", "documents"];
+  const TABLES = ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "roles", "projects", "project_steps", "project_updates", "emails", "feed_loads", "audit", "cases", "documents", "fmis_milk_daily", "fmis_herd_daily", "fmis_repro"];
   const MODULE_OF = { customers: "customers", vendors: "vendors", contacts: "contacts", deals: "pipeline", calls: "calls", tasks: "tasks", people: "people", roles: "roles",
     projects: "projects", project_steps: "projects", project_updates: "projects", emails: "email", cases: "cases", documents: "documents" };
   const LABEL = { customers: "name", vendors: "name", contacts: "name", deals: "title", calls: "topic", tasks: "title", people: "name", roles: "name",
@@ -67,6 +67,10 @@
       customers: DB.customers, vendors: DB.vendors, contacts: DB.contacts, deals: DB.deals, calls: DB.calls, tasks: DB.tasks,
       people: DB.people, roles: DB.roles, projects: DB.projects, project_steps: DB.project_steps, project_updates: DB.project_updates,
       emails: DB.emails, farm: DB.farm, lang: DB.lang, feed_workers, feed_days, cases: DB.cases, documents: DB.documents, ui: DB.ui,
+      fmis: (() => { const td = isoDay(new Date()), since = (n) => shift(td, -n), latest = DB.fmis_repro.reduce((a, r) => (r.day > a ? r.day : a), "");
+        return { milk: DB.fmis_milk_daily.filter((r) => r.day >= since(90) && r.day <= td).sort((a, b) => a.day.localeCompare(b.day)),
+          herd: DB.fmis_herd_daily.filter((r) => r.day >= since(180) && r.day <= td).sort((a, b) => a.day.localeCompare(b.day)),
+          repro: DB.fmis_repro.filter((r) => r.day === latest).sort((a, b) => b.animals - a.animals) }; })(),
       sample_count: ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "projects", "emails", "cases", "documents"].reduce((s, t) => s + DB[t].filter((r) => r.sample).length, 0) };
   }
 
@@ -115,7 +119,7 @@
     }
     if (path === "/api/settings/farm") { DB.farm = { name: String(body.name || "").slice(0, 120) }; save(); return json(200, { ok: true }); }
     if (path === "/api/admin/remove-sample") {
-      let n = 0; for (const t of ["project_updates", "project_steps", "projects", "emails", "cases", "documents", "deals", "calls", "contacts", "vendors", "customers", "tasks", "people", "feed_loads"]) { const before = DB[t].length; DB[t] = DB[t].filter((r) => !r.sample); n += before - DB[t].length; }
+      let n = 0; for (const t of ["project_updates", "project_steps", "projects", "emails", "cases", "documents", "deals", "calls", "contacts", "vendors", "customers", "tasks", "people", "feed_loads", "fmis_milk_daily", "fmis_herd_daily", "fmis_repro"]) { const before = DB[t].length; DB[t] = DB[t].filter((r) => !r.sample); n += before - DB[t].length; }
       audit("deleted", "sample", null, `${n} sample records`); save(); return json(200, { removed: n });
     }
     if (path === "/api/import/contacts") {

@@ -127,6 +127,14 @@
       new_document: "New document", docs_sub: "Certificates, contracts, SOPs and inspection reports with their expiry dates.",
       valid: "Valid", expiring: "Expiring within 60 days", expired: "Expired", no_expiry: "No expiry date", open_link: "Open",
       act_sub: "Calls, farm visits, services, inspections and meetings with partners.",
+      k_milk: "Milk, kg ECM", vs_avg: "{v} vs 7-day average", k_cows: "Milking cows", milk_cow: "{v} kg per cow", k_cells: "Somatic cells (1000/ml)",
+      above_limit: "above limit", limit_n: "limit {n}", k_preg: "Pregnant (TU+)", inseminated_n: "{n}% inseminated", cells_case: "Somatic cells high ({n}k): check with dairy",
+      create_case: "Create case", fmis_title: "Farm performance", fmis_sub: "From FMIS, read only. Same fields for every farm on FMIS.", crm_title: "Work and partners",
+      ch_milk: "Milk delivered (kg ECM)", last_60: "last 60 days", last_28: "last 28 days", last_6m: "last 6 months", kg_ecm_day: "kg ECM per day", avg7: "7-day average",
+      dairy_link: "Dairy", ch_quality: "Milk quality", cells_unit: "somatic cells, 1000/ml", fat: "Fat", protein: "Protein", urea: "Urea", ch_herd: "Herd",
+      lact_days: "Days in milk", ch_losses: "Losses and sales", died_cows: "Cows died", died_young: "Young stock died", died_calves: "Calves died", sold_cows: "Cows sold",
+      vet_link: "Vet", ch_repro: "Fertility status", ch_feed: "Feeding accuracy per worker",
+      rs_pregnant: "Pregnant (TU+)", rs_inseminated: "Inseminated, not checked", rs_open: "Open, ready to breed", rs_fresh: "Fresh, waiting period", rs_dnb: "Do not breed",
       visits_week: "Visits and services, 7 days", feed_acc: "Feeding accuracy", latest_day: "latest day", docs_expiring: "Documents expiring",
       within_60: "within 60 days", expired_n: "{n} expired", overdue_lbl: "Overdue", open_cases_list: "Open cases", visits_list: "Visits and services",
     } },
@@ -219,6 +227,14 @@
       new_document: "Neues Dokument", docs_sub: "Zertifikate, Verträge, Arbeitsanweisungen und Prüfberichte mit Ablaufdatum.",
       valid: "Gültig", expiring: "Läuft in 60 Tagen ab", expired: "Abgelaufen", no_expiry: "Kein Ablaufdatum", open_link: "Öffnen",
       act_sub: "Anrufe, Hofbesuche, Dienstleistungen, Kontrollen und Besprechungen mit Partnern.",
+      k_milk: "Milch, kg ECM", vs_avg: "{v} zum 7-Tage-Mittel", k_cows: "Melkende Kühe", milk_cow: "{v} kg je Kuh", k_cells: "Zellzahl (1000/ml)",
+      above_limit: "über Grenzwert", limit_n: "Grenzwert {n}", k_preg: "Tragend (TU+)", inseminated_n: "{n}% besamt", cells_case: "Zellzahl hoch ({n} Tsd.): mit Molkerei klären",
+      create_case: "Fall anlegen", fmis_title: "Betriebsleistung", fmis_sub: "Aus FMIS, nur lesen. Gleiche Felder für jeden Betrieb mit FMIS.", crm_title: "Arbeit und Partner",
+      ch_milk: "Abgelieferte Milch (kg ECM)", last_60: "letzte 60 Tage", last_28: "letzte 28 Tage", last_6m: "letzte 6 Monate", kg_ecm_day: "kg ECM pro Tag", avg7: "7-Tage-Mittel",
+      dairy_link: "Molkerei", ch_quality: "Milchqualität", cells_unit: "Zellzahl, 1000/ml", fat: "Fett", protein: "Eiweiß", urea: "Harnstoff", ch_herd: "Herde",
+      lact_days: "Laktationstage", ch_losses: "Abgänge und Verkäufe", died_cows: "Kühe verendet", died_young: "Jungrinder verendet", died_calves: "Kälber verendet", sold_cows: "Kühe verkauft",
+      vet_link: "Tierarzt", ch_repro: "Fruchtbarkeitsstatus", ch_feed: "Fütterungsgenauigkeit je Mitarbeiter",
+      rs_pregnant: "Tragend (TU+)", rs_inseminated: "Besamt, nicht untersucht", rs_open: "Offen, besamungsbereit", rs_fresh: "Frischmelker, Wartezeit", rs_dnb: "Nicht besamen",
       visits_week: "Besuche und Dienste, 7 Tage", feed_acc: "Fütterungsgenauigkeit", latest_day: "letzter Tag", docs_expiring: "Ablaufende Dokumente",
       within_60: "in 60 Tagen", expired_n: "{n} abgelaufen", overdue_lbl: "Überfällig", open_cases_list: "Offene Vorgänge", visits_list: "Besuche und Dienste",
     } },
@@ -470,6 +486,97 @@
   const openCases = () => (S.data.cases || []).filter((c) => !["resolved", "closed"].includes(c.status));
   const partnerName = (r) => (byId("vendors", r.vendor_id) || {}).name || (byId("customers", r.customer_id) || {}).name || "";
 
+  /* ---------- charts (plain SVG) ---------- */
+  function niceTicks(lo, hi, n = 4) {
+    const span = hi - lo || 1, step0 = span / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+    const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= step0) || step0;
+    const a = Math.floor(lo / step) * step, b = Math.ceil(hi / step) * step, out = [];
+    for (let v = a; v <= b + step / 2; v += step) out.push(Math.round(v * 1000) / 1000);
+    return out;
+  }
+  // series: [{ name, color, pts: [[iso, value], ...], area }]; refs: [{ v, label, color }]
+  function lineChart({ series, refs = [], fmt = (v) => v.toLocaleString(locale()), height = 210, max = null }) {
+    const W = 640, H = height, L = 48, R = 14, T = 14, B = 28;
+    const pts0 = series[0].pts; if (!pts0.length) return `<div class="empty">${esc(t("none_here"))}</div>`;
+    const vals = series.flatMap((s) => s.pts.map((p) => p[1])).concat(refs.map((r) => r.v)).filter((v) => v != null);
+    let lo = Math.min(...vals), hi = Math.max(...vals); const minSpan = Math.abs(hi) * 0.05;
+    if (hi - lo < minSpan) { const c = (hi + lo) / 2; lo = c - minSpan / 2; hi = c + minSpan / 2; }
+    const pad = (hi - lo) * 0.12 || 1; lo -= pad; hi += pad; if (max != null) hi = Math.min(hi, max);
+    const ticks = niceTicks(lo, hi); lo = ticks[0]; hi = ticks.at(-1);
+    const n = pts0.length, X = (i) => L + (n === 1 ? 0 : (i / (n - 1)) * (W - L - R)), Y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+    const grid = ticks.map((v) => `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" class="gl"/><text x="${L - 8}" y="${Y(v) + 4}" text-anchor="end" class="ax">${esc(fmt(v))}</text>`).join("");
+    const xl = [0, Math.floor((n - 1) / 2), n - 1].map((i) => `<text x="${X(i)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === n - 1 ? "end" : "middle"}" class="ax">${esc(fdate(pts0[i][0], { day: "numeric", month: "short" }))}</text>`).join("");
+    const lines = series.map((s, si) => {
+      let gap = true; const d = s.pts.map((p, i) => { if (p[1] == null) return ""; const c = gap ? "M" : "L"; gap = false; return `${c}${X(i).toFixed(1)} ${Y(p[1]).toFixed(1)}`; }).join(" ");
+      const area = s.area ? `<path d="${d} L${X(n - 1)} ${Y(lo)} L${X(0)} ${Y(lo)} Z" fill="${s.color}" fill-opacity=".12" stroke="none"/>` : "";
+      return `${area}<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.thin ? 1.6 : 2.4}" stroke-linejoin="round" stroke-linecap="round" class="ln" style="animation-delay:${si * 120}ms"${s.dash ? ' stroke-dasharray="5 4"' : ""}/>`;
+    }).join("");
+    const refL = refs.map((r) => `<line x1="${L}" x2="${W - R}" y1="${Y(r.v)}" y2="${Y(r.v)}" stroke="${r.color || "var(--red)"}" stroke-dasharray="6 5" stroke-width="1.4"/><text x="${L + 6}" y="${Y(r.v) - 6}" class="ax" style="fill:${r.color || "var(--red)"}">${esc(r.label)}</text>`).join("");
+    const last = [...series[0].pts].reverse().find((p) => p[1] != null) || pts0.at(-1), li = series[0].pts.lastIndexOf(last);
+    const dots = series[0].pts.map((p, i) => p[1] == null ? "" : `<circle cx="${X(i)}" cy="${Y(p[1])}" r="7" class="hit"><title>${esc(fdate(p[0]))}: ${esc(fmt(p[1]))}${series[1] && series[1].pts[i] && series[1].pts[i][1] != null ? " · " + esc(series[1].name) + " " + esc(fmt(series[1].pts[i][1])) : ""}</title></circle>`).join("");
+    const legend = series.length > 1 ? `<div class="legend">${series.map((s) => `<span class="lg"><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>` : "";
+    return `${legend}<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="${esc(series[0].name)}">${grid}${xl}${refL}${lines}<circle cx="${X(li)}" cy="${Y(last[1])}" r="4.5" fill="${series[0].color}" stroke="var(--bg-2)" stroke-width="2"/>${dots}</svg>`;
+  }
+  // groups: [{ label, parts: { key: value } }], keys: [{ key, name, color }]
+  function stackedBars({ groups, keys, height = 200 }) {
+    const W = 640, H = height, L = 34, R = 10, T = 12, B = 28;
+    const tot = groups.map((g) => keys.reduce((a, k) => a + (g.parts[k.key] || 0), 0));
+    const ticks = niceTicks(0, Math.max(1, ...tot)), hi = ticks.at(-1);
+    const bw = (W - L - R) / groups.length, Y = (v) => T + (1 - v / hi) * (H - T - B);
+    const grid = ticks.map((v) => `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" class="gl"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" class="ax">${v}</text>`).join("");
+    const bars = groups.map((g, i) => { let acc = 0; const x = L + i * bw + bw * 0.2, w = bw * 0.6;
+      return keys.map((k) => { const v = g.parts[k.key] || 0; if (!v) return ""; const y1 = Y(acc + v), y0 = Y(acc); acc += v;
+        return `<rect x="${x}" y="${y1}" width="${w}" height="${Math.max(0, y0 - y1)}" fill="${k.color}" rx="3" class="bar" style="animation-delay:${i * 50}ms"><title>${esc(g.label)} · ${esc(k.name)}: ${v}</title></rect>`; }).join("") +
+        `<text x="${x + w / 2}" y="${H - 8}" text-anchor="middle" class="ax">${esc(g.label)}</text>`; }).join("");
+    return `<div class="legend">${keys.map((k) => `<span class="lg"><i style="background:${k.color}"></i>${esc(k.name)}</span>`).join("")}</div><svg viewBox="0 0 ${W} ${H}" class="chart" role="img">${grid}${bars}</svg>`;
+  }
+  const hbars = (rows, fmt) => { const max = Math.max(1, ...rows.map((r) => r[1])); return `<div class="bars">${rows.map(([n, v], i) => `<div class="bar-row"><span class="name">${esc(n)}</span><span class="track"><span class="fill" style="width:${(v / max) * 100}%;animation-delay:${i * 60}ms"></span></span><span class="num muted">${fmt ? fmt(v) : v}</span></div>`).join("")}</div>`; };
+
+  /* ---------- Farm performance from FMIS (read only) ---------- */
+  const CELL_LIMIT = 250;
+  function fmisCards() {
+    const F = S.data.fmis; if (!F || !F.milk.length) return "";
+    const m = F.milk, last = m.at(-1), prev7 = m.slice(-8, -1), avg7 = prev7.reduce((a, r) => a + r.kg_ecm, 0) / Math.max(1, prev7.length);
+    const h = F.herd.at(-1) || {};
+    const diff = Math.round(((last.kg_ecm - avg7) / avg7) * 1000) / 10;
+    return `<div class="cards">
+      ${card(10, t("k_milk"), last.kg_ecm, t("vs_avg", { v: (diff > 0 ? "+" : "") + diff + "%" }), ICON.chart, "accent", "")}
+      ${card(11, t("k_cows"), h.cows_milking || 0, t("milk_cow", { v: (h.milk_per_cow || 0).toLocaleString(locale()) }), ICON.users)}
+      ${card(12, t("k_cells"), last.cells, last.cells > CELL_LIMIT ? t("above_limit") + " " + CELL_LIMIT : t("limit_n", { n: CELL_LIMIT }), ICON.alert, last.cells > CELL_LIMIT ? "warn" : "")}
+      ${card(13, t("k_preg"), "pct:" + (h.pct_pregnant || 0), t("inseminated_n", { n: Math.round(h.pct_inseminated || 0) }), ICON.task)}
+    </div>`;
+  }
+  function fmisCharts() {
+    const F = S.data.fmis; if (!F || !F.milk.length) return "";
+    const D = S.data, m = F.milk.slice(-60), h = F.herd.slice(-60), last = F.milk.at(-1);
+    const ma = m.map((r, i) => { const w = m.slice(Math.max(0, i - 6), i + 1); return [r.day, Math.round(w.reduce((a, x) => a + x.kg_ecm, 0) / w.length)]; });
+    const dairy = D.customers.filter((c) => c.type === "dairy" && c.status === "active").sort((a, b) => (b.volume_eur || 0) - (a.volume_eur || 0))[0];
+    const vet = D.vendors.find((v) => v.type === "vet");
+    const months = {}; F.herd.forEach((r) => { const k = r.day.slice(0, 7); const o = months[k] || (months[k] = { died_cows: 0, died_young: 0, died_calves: 0, sold_cows: 0 }); ["died_cows", "died_young", "died_calves", "sold_cows"].forEach((x) => (o[x] += r[x] || 0)); });
+    const mk = Object.keys(months).sort().slice(-6);
+    const fw = {}; (D.feed_days || []).forEach((d) => { (fw[d.operator] = fw[d.operator] || {})[d.day] = d.accuracy; });
+    const fdays = [...new Set((D.feed_days || []).map((d) => d.day))].sort().slice(-28);
+    const FC = ["var(--blue)", "var(--green)", "var(--violet)", "var(--amber)"];
+    const workerName = (op) => (D.people.find((p) => p.operator_name === op) || {}).name || op;
+    const feedSeries = Object.keys(fw).map((op, i) => ({ name: workerName(op), color: FC[i % FC.length], thin: true, pts: fdays.map((d) => [d, fw[op][d] != null ? fw[op][d] : null]) })).filter((s) => s.pts.filter((p) => p[1] != null).length > 3);
+    const caseBtn = last.cells > CELL_LIMIT && can("cases", "edit") ? `<button class="btn small" data-new="cases" data-preset='${esc(JSON.stringify({ title: t("cells_case", { n: last.cells }), kind: "quality", priority: "high", status: "open", opened: today(), customer_id: dairy ? dairy.id : null }))}'>${ICON.alert} ${esc(t("create_case"))}</button>` : "";
+    const panel = (i, title, sub, inner, foot) => `<div class="panel reveal" style="--i:${i}"><div class="panel-head"><h3>${esc(title)}</h3><span class="sub">${esc(sub || "")}</span></div>${inner}${foot ? `<div class="chart-foot">${foot}</div>` : ""}</div>`;
+    return `<div class="section-band"><div><h2>${esc(t("fmis_title"))}</h2><p class="muted">${esc(t("fmis_sub"))}</p></div></div>
+      <div class="grid halves charts-grid">
+        ${panel(14, t("ch_milk"), t("last_60"), lineChart({ series: [{ name: t("kg_ecm_day"), color: "var(--blue)", pts: m.map((r) => [r.day, r.kg_ecm]), area: true }, { name: t("avg7"), color: "var(--green)", pts: ma }] }),
+          dairy ? `<span class="muted">${esc(t("dairy_link"))}:</span> <a href="#" data-open="customers:${dairy.id}">${esc(dairy.name)}</a>` : "")}
+        ${panel(15, t("ch_quality"), t("cells_unit"), lineChart({ series: [{ name: t("k_cells"), color: "var(--violet)", pts: m.map((r) => [r.day, r.cells]), area: true }], refs: [{ v: CELL_LIMIT, label: t("limit_n", { n: CELL_LIMIT }) }] }),
+          `<span class="chip">${esc(t("fat"))} ${last.fat}%</span><span class="chip">${esc(t("protein"))} ${last.protein}%</span><span class="chip">${esc(t("urea"))} ${last.urea} mg/l</span>${caseBtn}`)}
+        ${panel(16, t("ch_herd"), t("last_60"), lineChart({ series: [{ name: t("k_cows"), color: "var(--green)", pts: h.map((r) => [r.day, r.cows_milking]), area: true }] }),
+          `<span class="chip">${esc(t("k_preg"))} ${(F.herd.at(-1) || {}).pct_pregnant}%</span><span class="chip">${esc(t("lact_days"))} ${(F.herd.at(-1) || {}).lact_days}</span>`)}
+        ${panel(17, t("ch_losses"), t("last_6m"), stackedBars({ groups: mk.map((k) => ({ label: fdate(k, { month: "short" }), parts: months[k] })),
+          keys: [{ key: "died_cows", name: t("died_cows"), color: "var(--red)" }, { key: "died_young", name: t("died_young"), color: "var(--amber)" }, { key: "died_calves", name: t("died_calves"), color: "var(--violet)" }, { key: "sold_cows", name: t("sold_cows"), color: "var(--blue)" }] }),
+          vet ? `<span class="muted">${esc(t("vet_link"))}:</span> <a href="#" data-open="vendors:${vet.id}">${esc(vet.name)}</a>` : "")}
+        ${panel(18, t("ch_repro"), t("latest_day"), hbars(F.repro.map((r) => [t("rs_" + r.status) === "rs_" + r.status ? r.status : t("rs_" + r.status), r.animals])), "")}
+        ${feedSeries.length ? panel(19, t("ch_feed"), t("last_28"), lineChart({ series: feedSeries, fmt: (v) => Math.round(v) + "%", max: 100, refs: [{ v: 97, label: "97%", color: "var(--amber)" }] }), "") : ""}
+      </div>`;
+  }
+
   PAGES.overview = () => {
     const D = S.data, td = today();
     const cases = openCases(), high = cases.filter((c) => c.priority === "high");
@@ -495,6 +602,9 @@
         ${card(2, t("open_tasks"), tasksOpen.length, t("urgent_n", { n: urgent.length }), ICON.task, "", "tasks")}
         ${card(3, t("feed_acc"), acc == null ? "–" : "pct:" + acc, t("latest_day"), ICON.feed, "", "workers")}
       </div>
+      ${fmisCards()}
+      ${fmisCharts()}
+      <div class="section-band"><div><h2>${esc(t("crm_title"))}</h2></div></div>
       <div class="grid two">
         <div class="grid">
           <div class="panel reveal" style="--i:4"><div class="panel-head"><h3>${esc(t("open_cases_list"))}</h3><a href="#/cases">${esc(t("view_all"))} →</a></div>
