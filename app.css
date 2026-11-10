@@ -516,3 +516,7 @@ body.side-open main, body.side-pinned main, html.pin-early main { margin-left: c
 .chart-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; }
 .chart-foot .btn { margin-left: auto; }
 @media (prefers-reduced-motion: reduce) { .chart .ln, .chart .bar { animation: none; stroke-dashoffset: 0; } }
+
+/* Dropdown lists: black text on white in every theme, so the choices are always readable */
+select option, select optgroup { color: #111; background: #fff; }
+select option:checked { color: #111; background: #dbe6ff; }
