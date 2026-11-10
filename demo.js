@@ -10,17 +10,18 @@
     const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
     return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
   }
-  const KEY = "kwdemo:db:v1", SESS = "kwdemo:session";
+  const KEY = "kwdemo:db:v2", SESS = "kwdemo:session";
   const realFetch = window.fetch.bind(window);
   const pad = (n) => String(n).padStart(2, "0");
   const isoDay = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
   const nowStr = () => { const d = new Date(); return `${isoDay(d)} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; };
-  const DATE_FIELDS = ["at", "day", "contract_start", "contract_end", "last_contact", "expected", "deadline", "done_on", "start", "due", "last_booking", "reported", "since"];
-  const TABLES = ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "roles", "projects", "project_steps", "project_updates", "emails", "feed_loads", "audit"];
+  const DATE_FIELDS = ["at", "day", "contract_start", "contract_end", "last_contact", "expected", "deadline", "done_on", "start", "due", "last_booking", "reported", "since",
+    "opened", "resolved_on", "valid_from", "valid_until"];
+  const TABLES = ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "roles", "projects", "project_steps", "project_updates", "emails", "feed_loads", "audit", "cases", "documents"];
   const MODULE_OF = { customers: "customers", vendors: "vendors", contacts: "contacts", deals: "pipeline", calls: "calls", tasks: "tasks", people: "people", roles: "roles",
-    projects: "projects", project_steps: "projects", project_updates: "projects", emails: "email" };
+    projects: "projects", project_steps: "projects", project_updates: "projects", emails: "email", cases: "cases", documents: "documents" };
   const LABEL = { customers: "name", vendors: "name", contacts: "name", deals: "title", calls: "topic", tasks: "title", people: "name", roles: "name",
-    projects: "title", project_steps: "title", project_updates: "note", emails: "subject" };
+    projects: "title", project_steps: "title", project_updates: "note", emails: "subject", cases: "title", documents: "title" };
 
   // Shift every date in the sample data so "today" in the data is today in the browser.
   function shift(value, days) {
@@ -36,7 +37,7 @@
     seedPromise = seedPromise || realFetch("seed.json").then((r) => r.json());
     const seed = await seedPromise;
     const days = Math.round((Date.parse(isoDay(new Date()) + "T12:00:00") - Date.parse(seed.seed_day + "T12:00:00")) / 864e5);
-    DB = { farm: seed.farm, lang: seed.lang || null, modules: seed.modules, next: 100000 };
+    DB = { farm: seed.farm, lang: seed.lang || null, modules: seed.modules, ui: seed.ui || { hidden_pages: ["pipeline"], hidden_buttons: [] }, next: 100000 };
     for (const t of TABLES) DB[t] = (seed.tables[t] || []).map((r) => { const o = Object.assign({}, r); DATE_FIELDS.forEach((f) => { if (f in o) o[f] = shift(o[f], days); }); return o; });
     save();
     return DB;
@@ -65,8 +66,8 @@
     return { me: { id: m.id, name: "Admin", username: DEMO_USER, role: "Admin" }, perms, today: isoDay(new Date()), modules: DB.modules,
       customers: DB.customers, vendors: DB.vendors, contacts: DB.contacts, deals: DB.deals, calls: DB.calls, tasks: DB.tasks,
       people: DB.people, roles: DB.roles, projects: DB.projects, project_steps: DB.project_steps, project_updates: DB.project_updates,
-      emails: DB.emails, farm: DB.farm, lang: DB.lang, feed_workers, feed_days,
-      sample_count: ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "projects", "emails"].reduce((s, t) => s + DB[t].filter((r) => r.sample).length, 0) };
+      emails: DB.emails, farm: DB.farm, lang: DB.lang, feed_workers, feed_days, cases: DB.cases, documents: DB.documents, ui: DB.ui,
+      sample_count: ["customers", "vendors", "contacts", "deals", "calls", "tasks", "people", "projects", "emails", "cases", "documents"].reduce((s, t) => s + DB[t].filter((r) => r.sample).length, 0) };
   }
 
   function write(ent, id, body) {
@@ -107,9 +108,14 @@
     if (path === "/api/bootstrap") return json(200, bootstrap());
     if (path === "/api/audit") return json(200, DB.audit.slice(0, 300));
     if (path === "/api/settings/lang") { DB.lang = body; save(); return json(200, { ok: true }); }
+    if (path === "/api/settings/ui") {
+      const keep = (v) => (Array.isArray(v) ? v.map(String).slice(0, 60) : []);
+      DB.ui = { hidden_pages: keep(body.hidden_pages).filter((x) => x !== "admin" && x !== "overview"), hidden_buttons: keep(body.hidden_buttons) };
+      save(); return json(200, DB.ui);
+    }
     if (path === "/api/settings/farm") { DB.farm = { name: String(body.name || "").slice(0, 120) }; save(); return json(200, { ok: true }); }
     if (path === "/api/admin/remove-sample") {
-      let n = 0; for (const t of ["project_updates", "project_steps", "projects", "emails", "deals", "calls", "contacts", "vendors", "customers", "tasks", "people", "feed_loads"]) { const before = DB[t].length; DB[t] = DB[t].filter((r) => !r.sample); n += before - DB[t].length; }
+      let n = 0; for (const t of ["project_updates", "project_steps", "projects", "emails", "cases", "documents", "deals", "calls", "contacts", "vendors", "customers", "tasks", "people", "feed_loads"]) { const before = DB[t].length; DB[t] = DB[t].filter((r) => !r.sample); n += before - DB[t].length; }
       audit("deleted", "sample", null, `${n} sample records`); save(); return json(200, { removed: n });
     }
     if (path === "/api/import/contacts") {

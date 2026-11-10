@@ -22,31 +22,48 @@
     feed: '<svg class="icon" viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M10 20v-6h4v6"/></svg>',
     x: '<svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     bell: '<svg class="icon" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>',
+    alert: '<svg class="icon" viewBox="0 0 24 24"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg>',
+    calendar: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>',
+    doc: '<svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>',
+    grid: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+    sun: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M9 15l2 2 4-4"/></svg>',
+    mail: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+    link: '<svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>',
+    layers: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+    chart: '<svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>',
+    shield: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    gear: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+    pin: '<svg class="icon" viewBox="0 0 24 24"><path d="M9 4h6l-1 6 4 4H6l4-4zM12 14v7"/></svg>',
   };
 
   /* ================= texts (English built in, German for the main labels; Admin can add languages) ================= */
   const BUILTIN = {
     en: { name: "English", locale: "en-GB", strings: {
-      overview: "Overview", customers: "Customers", vendors: "Vendors", contacts: "Contacts", pipeline: "Pipeline", calls: "Calls",
+      overview: "Dashboard", customers: "Buyers", vendors: "Suppliers", contacts: "Contacts", pipeline: "Sales pipeline", calls: "Activities",
       tasks: "Tasks", workers: "Workers", reports: "Reports", roles: "Roles", admin: "Admin", logout: "Log out",
-      welcome: "Welcome back, {name}.", ov_sub: "Customers, vendors, workers and what needs doing today.",
-      open_pipeline: "Open pipeline", weighted: "{v} weighted by stage", calls_week: "Calls next 7 days", today_n: "{n} today",
+      cases: "Cases", documents: "Documents", projects: "Projects", schedule: "Schedule", today_page: "Today", email: "Email",
+      grp_main: "Overview", grp_production: "Production", grp_partners: "Partners", grp_insights: "Insights", grp_settings: "Settings",
+      pin: "Keep the menu open", unpin: "Let the menu close",
+      welcome: "Welcome back, {name}.", ov_sub: "Production, partners, workers and what needs doing today.",
+      open_pipeline: "Open pipeline", weighted: "{v} weighted by stage", calls_week: "Activities next 7 days", today_n: "{n} today",
       open_tasks: "Open tasks", urgent_n: "{n} urgent", requests: "Booking requests", from_form: "from the Book a call form",
-      volume_year: "Business volume this year", read_only_fin: "Read only, from finance", top_customers: "Top customers (income)",
-      top_vendors: "Top vendors (spend)", today: "Today", nothing_today: "Nothing planned for today.", due_call: "Due a call",
+      volume_year: "Partner volume this year", read_only_fin: "Read only, from finance", top_customers: "Top buyers (income)",
+      top_vendors: "Top suppliers (spend)", today: "Today", nothing_today: "Nothing planned for today.", due_call: "Due a call",
       longest: "Longest since we spoke", workers_latest: "Feeding: latest day", recent: "Recent activity", view_all: "View all",
-      new: "New", new_customer: "New customer", new_vendor: "New vendor", new_contact: "New contact", new_deal: "New deal",
-      new_call: "New call", new_task: "New task", new_worker: "New person", new_role: "New role",
+      new: "New", new_customer: "New buyer", new_vendor: "New supplier", new_contact: "New contact", new_deal: "New deal",
+      new_call: "New activity", new_task: "New task", new_worker: "New person", new_role: "New role",
       search: "Search", all: "All", favourites: "Favourites", name: "Name", type: "Type", status: "Status", owner: "Owner",
       volume: "Volume this year", spend: "Spend this year", last_booking: "Last booking", contract_end: "Contract ends",
-      organisation: "Organisation", title: "Title", phone: "Phone", email: "Email", last_contact: "Last contact", language: "Language",
-      city: "City", country: "Country", level: "Pyramid level", notes: "Notes", code: "Code", contract_start: "Contract starts",
-      customer: "Customer", stage: "Stage", value: "Value (EUR)", expected: "Expected", when: "When", topic: "Topic", contact: "Contact",
+      organisation: "Organisation", title: "Title", phone: "Phone", email_addr: "Email", last_contact: "Last contact", language: "Language",
+      city: "City", country: "Country", level: "Area level", notes: "Notes", code: "Code", contract_start: "Contract starts",
+      customer: "Buyer", supplier: "Supplier", stage: "Stage", value: "Value (EUR)", expected: "Expected", when: "When", topic: "Topic", contact: "Contact",
       outcome: "Outcome", area: "Area", priority: "Priority", deadline: "Deadline", reason: "Why this priority", next: "Next step",
       job: "Job", role: "Role", operator: "CowConnect operator name", username: "Login name", password: "New password", active: "Active",
+      kind: "Type", place: "Place", opened: "Opened", resolved_on: "Resolved on", description: "Description", resolution: "Resolution",
+      valid_from: "Valid from", valid_until: "Valid until", link: "Link (file or web address)",
       save: "Save", delete: "Delete", cancel: "Cancel", close: "Close", saved: "Saved.", deleted: "Deleted.", confirm_delete: "Delete {name}?",
       showing: "{a} of {b}", none_here: "Nothing here yet.", sample_tag: "sample", contacts_of: "Contacts", deals_of: "Deals",
-      calls_of: "Calls", ends_in: "ends in {n} days", ended: "ended", no_access: "You have no access to this page.",
+      calls_of: "Activities", cases_of: "Cases", docs_of: "Documents", ends_in: "ends in {n} days", ended: "ended", no_access: "You have no access to this page.",
       sample_banner: "This CRM shows made-up sample data. Admin can remove it with one click.",
       upcoming: "Upcoming", history: "History", accept: "Accept", decline: "Decline", copy_link: "Copy Book a call link",
       link_copied: "Link copied.", requested_by: "Requested by {name}", no_time: "No time given",
@@ -57,8 +74,9 @@
       mark_done: "Mark done", edit: "Edit", not_replied: "Not replied", flow_open: "Open", flow_reported: "Reported done", flow_confirmed: "Confirmed",
       feeding: "Feeding activity", loads: "loads", accuracy: "accuracy", planned_actual: "{a} of {p} kg planned", groups: "Feed groups",
       first_last: "{f} to {l}", login_yes: "Has login", login_no: "No login", from_cowconnect: "Shape of CowConnect Futterdaten (sample data)",
-      everyone: "Everyone", rep_pipeline: "Pipeline value by stage", rep_calls: "Calls by status", rep_feed: "Feed loads per worker, last 8 weeks",
-      rep_cust: "Customers by income this year", rep_vend: "Vendor spend by type", rep_tasks: "Open tasks by priority",
+      everyone: "Everyone", rep_pipeline: "Pipeline value by stage", rep_calls: "Activities by type", rep_feed: "Feed loads per worker, last 8 weeks",
+      rep_cust: "Buyers by income this year", rep_vend: "Supplier spend by type", rep_tasks: "Open tasks by priority",
+      rep_cases: "Open cases by type", rep_docs: "Documents by status",
       farm: "Farm", farm_name: "Farm name", sample_data: "Sample data", sample_n: "{n} sample records", remove_sample: "Remove sample data",
       remove_confirm: "Remove all sample data? Real data you entered stays.", import_contacts: "Import contacts (CSV)",
       import_feed: "Import feed loads (CowConnect CSV)", import_hint: "CSV with a header row. Contacts: name, organisation, title, phone, email, language. Feed: Datum, Gruppe, operatorName, Futtermittelbezeichnung, plannedQuantity, Menge, accuracy.",
@@ -66,49 +84,143 @@
       lang_code: "Code (e.g. nl)", lang_name: "Name", translate: "Translate", only_missing: "Only not translated", missing_n: "{n} not translated",
       changelog: "Change log", rights: "Rights per module", none: "No access", see: "See", edit_r: "Edit", data_sources: "Data sources",
       ds_hint: "Where real farm data would come from (schema only): see app/DATA_SOURCES.md.",
+      pages_buttons: "Pages and buttons", pb_hint: "Choose which pages and top buttons everyone sees. Roles still decide who may open what.",
+      pages: "Pages in the menu", buttons: "Buttons in the top bar", shown: "Shown", hidden: "Hidden",
+      btn_search: "Search", btn_new: "New", btn_today: "Today", btn_email: "Email", btn_booklink: "Book a call link", btn_bell: "Notifications",
+      btn_lang: "Language", btn_theme: "Light / dark",
       o_dairy: "Dairy (milk buyer)", o_cattle_buyer: "Cattle buyer", o_biogas: "Biogas / energy", o_crop_buyer: "Crop buyer", o_private: "Private",
-      o_other: "Other", o_lead: "Lead", o_active: "Active", o_paused: "Paused", o_former: "Former", o_feed_supplier: "Feed supplier",
+      o_other: "Other", o_lead: "Prospect", o_active: "Active", o_paused: "Paused", o_former: "Former", o_feed_supplier: "Feed supplier",
       o_vet: "Vet", o_breeding: "Breeding", o_machinery: "Machinery", o_service: "Service", o_advisor: "Advisor", o_farm: "Our farm",
-      o_customer: "Customer", o_vendor: "Vendor", o_first_call: "First call", o_demo: "Demo / visit", o_proposal: "Proposal", o_won: "Won",
+      o_customer: "Buyer", o_vendor: "Supplier", o_first_call: "First call", o_demo: "Demo / visit", o_proposal: "Proposal", o_won: "Won",
       o_lost: "Lost", o_requested: "Requested", o_planned: "Planned", o_done: "Done", o_missed: "Missed", o_cancelled: "Cancelled",
       o_urgent: "Urgent", o_week: "This week", o_later: "Later", o_none: "No action", o_decision: "Decision needed", o_reported: "Reported done",
-      o_notdone: "Not done", o_confirmed: "Confirmed", o_fin: "Finance", o_prod: "Product and customer", o_animal: "Processes: animal",
+      o_notdone: "Not done", o_confirmed: "Confirmed", o_fin: "Finance", o_prod: "Product and buyers", o_animal: "Processes: animal",
       o_plant: "Processes: plant", o_res: "Resources", o_platform: "Platform", o_app: "App", o_sec: "Security", o_kb: "Knowledge", o_gen: "General",
-      l_finance: "Finance", l_product: "Product and customer", l_process: "Internal processes", l_resources: "Resources", l_foundation: "Foundation",
-      projects: "Projects", schedule: "Schedule", today_page: "Today", email: "Email", new_project: "New project",
-      prj_sub: "Every farm project with its steps and progress.", active_projects: "Active projects", steps_week: "Steps done this week",
+      o_planning: "Planning", o_review: "Review",
+      o_call: "Call", o_visit: "Farm visit", o_inspection: "Inspection", o_meeting: "Meeting",
+      o_quality: "Milk quality", o_animal_health: "Animal health", o_supply: "Supply", o_equipment: "Equipment", o_safety: "Safety", o_complaint: "Complaint",
+      o_high: "High", o_medium: "Medium", o_low: "Low", o_open: "Open", o_in_progress: "In progress", o_waiting: "Waiting", o_resolved: "Resolved", o_closed: "Closed",
+      o_certificate: "Certificate", o_contract: "Contract", o_sop: "SOP", o_inspection_report: "Inspection report",
+      l_finance: "Finance", l_product: "Product and buyers", l_process: "Internal processes", l_resources: "Resources", l_foundation: "Foundation",
+      new_project: "New project", prj_sub: "Every farm project with its steps and progress.", active_projects: "Active projects", steps_week: "Steps done this week",
       next_due: "Next due", overall: "Overall progress", in_days: "in {n} days", days_ago: "{n} days late", of_steps: "{a} of {b}",
       all_done: "All done", no_steps: "No steps yet", steps: "Steps", add_step: "Add a step", progress_updates: "Progress updates",
       add_update: "Add update", update_ph: "What happened? e.g. offers received, vet visit booked", due: "Due", start: "Start",
-      subtitle: "Where / what", open: "Open", o_planning: "Planning", o_review: "Review",
-      sch_sub: "Calls, deadlines, deals, project due dates and contract ends in one calendar.", today_btn: "Today", prev: "Previous", next_m: "Next",
-      ev_call: "Call", ev_task: "Task deadline", ev_deal: "Deal expected", ev_project: "Project due", ev_contract: "Contract ends", more_n: "+{n} more",
-      td_sub: "Everything that needs you today.", calls_today: "Calls today", tasks_due: "Overdue and urgent tasks", steps_next: "Next project steps",
+      subtitle: "Where / what", open: "Open",
+      sch_sub: "Activities, farm visits, deadlines, project due dates and contract ends in one calendar.", today_btn: "Today", prev: "Previous", next_m: "Next",
+      v_week: "Week", v_month: "Month", v_agenda: "Agenda",
+      ev_call: "Activity", ev_task: "Task deadline", ev_deal: "Deal expected", ev_project: "Project due", ev_contract: "Contract ends", ev_case: "Case due", more_n: "+{n} more",
+      td_sub: "Everything that needs you today.", calls_today: "Activities today", tasks_due: "Overdue and urgent tasks", steps_next: "Next project steps",
       contracts_soon: "Contracts ending in 30 days", nothing: "Nothing here.", late: "late",
-      em_sub: "Write to customers and vendors. Every email is logged on the contact.", compose: "Write an email", to: "To",
+      em_sub: "Write to buyers, suppliers and workers. Every email is logged.", compose: "Write an email", to: "To",
       or_email: "or type an email address", template: "Template", subject: "Subject", message: "Message",
       send_app: "Open in my email app", log_only: "Save to log only", sent_log: "Sent emails", email_logged: "Email saved to the log.",
-      write_email: "Write email", tpl_none: "No template", tpl_followup: "Call follow-up", tpl_renewal: "Contract renewal",
-      tpl_confirm: "Call confirmation", tpl_thanks: "Thank you",
+      write_email: "Write email", tpl_none: "No template", tpl_followup: "Follow-up", tpl_renewal: "Contract renewal",
+      tpl_confirm: "Visit confirmation", tpl_thanks: "Thank you",
       notif: "Notifications", notif_none: "All clear. Nothing needs attention.", n_requests: "{n} booking requests",
       n_overdue: "{n} overdue tasks", n_contracts: "{n} contracts end within 30 days", n_projects: "{n} projects due within 7 days",
-      n_missed: "{n} missed calls this week", search_all: "Search customers, vendors, contacts, deals, projects, tasks…", export: "Export CSV",
+      n_missed: "{n} missed activities this week", n_cases: "{n} high-priority cases open", n_docs: "{n} documents expire within 60 days",
+      search_all: "Search buyers, suppliers, contacts, cases, documents, projects, tasks…", export: "Export CSV",
       prj_in_progress: "Projects in progress",
+      new_case: "New case", cases_sub: "Quality, animal health, supply and equipment issues, followed until they are solved.",
+      open_cases: "Open cases", high_n: "{n} high priority", overdue_n: "{n} overdue", resolved_month: "Resolved in 30 days",
+      new_document: "New document", docs_sub: "Certificates, contracts, SOPs and inspection reports with their expiry dates.",
+      valid: "Valid", expiring: "Expiring within 60 days", expired: "Expired", no_expiry: "No expiry date", open_link: "Open",
+      act_sub: "Calls, farm visits, services, inspections and meetings with partners.",
+      visits_week: "Visits and services, 7 days", feed_acc: "Feeding accuracy", latest_day: "latest day", docs_expiring: "Documents expiring",
+      within_60: "within 60 days", expired_n: "{n} expired", overdue_lbl: "Overdue", open_cases_list: "Open cases", visits_list: "Visits and services",
     } },
     de: { name: "Deutsch", locale: "de-DE", strings: {
-      overview: "Übersicht", customers: "Kunden", vendors: "Lieferanten", contacts: "Kontakte", pipeline: "Pipeline", calls: "Anrufe",
+      overview: "Dashboard", customers: "Abnehmer", vendors: "Lieferanten", contacts: "Kontakte", pipeline: "Vertriebs-Pipeline", calls: "Aktivitäten",
       tasks: "Aufgaben", workers: "Mitarbeitende", reports: "Berichte", roles: "Rollen", admin: "Admin", logout: "Abmelden",
-      welcome: "Willkommen zurück, {name}.", ov_sub: "Kunden, Lieferanten, Mitarbeitende und was heute zu tun ist.",
-      open_pipeline: "Offene Pipeline", calls_week: "Anrufe nächste 7 Tage", open_tasks: "Offene Aufgaben", requests: "Terminanfragen",
-      volume_year: "Geschäftsvolumen dieses Jahr", today: "Heute", due_call: "Anruf fällig", recent: "Letzte Aktivität",
-      new: "Neu", search: "Suchen", all: "Alle", favourites: "Favoriten", name: "Name", type: "Typ", status: "Status", owner: "Zuständig",
-      save: "Speichern", delete: "Löschen", cancel: "Abbrechen", close: "Schließen", saved: "Gespeichert.", upcoming: "Anstehend",
-      history: "Verlauf", accept: "Annehmen", decline: "Ablehnen", feeding: "Fütterung", languages: "Sprachen", changelog: "Änderungsprotokoll",
-      g_urgent: "Dringend", g_week: "Diese Woche", g_later: "Später", g_none: "Nichts zu tun", g_done: "Erledigt (letzte 30 Tage)",
-      o_dairy: "Molkerei (Milchkäufer)", o_cattle_buyer: "Viehhändler", o_feed_supplier: "Futtermittel", o_vet: "Tierarzt",
-      l_finance: "Finanzen", l_product: "Produkt und Kunde", l_process: "Interne Prozesse", l_resources: "Ressourcen", l_foundation: "Fundament",
-      projects: "Projekte", schedule: "Kalender", today_page: "Heute", email: "E-Mail", steps: "Schritte",
-      progress_updates: "Fortschritt", notif: "Benachrichtigungen", export: "CSV exportieren",
+      cases: "Vorgänge", documents: "Dokumente", projects: "Projekte", schedule: "Kalender", today_page: "Heute", email: "E-Mail",
+      grp_main: "Übersicht", grp_production: "Produktion", grp_partners: "Partner", grp_insights: "Auswertung", grp_settings: "Einstellungen",
+      pin: "Menü offen halten", unpin: "Menü automatisch schließen",
+      welcome: "Willkommen zurück, {name}.", ov_sub: "Produktion, Partner, Mitarbeitende und was heute zu tun ist.",
+      open_pipeline: "Offene Pipeline", weighted: "{v} gewichtet nach Phase", calls_week: "Aktivitäten nächste 7 Tage", today_n: "{n} heute",
+      open_tasks: "Offene Aufgaben", urgent_n: "{n} dringend", requests: "Terminanfragen", from_form: "aus dem Formular „Termin anfragen“",
+      volume_year: "Partnervolumen dieses Jahr", read_only_fin: "Nur lesen, aus der Buchhaltung", top_customers: "Größte Abnehmer (Erlös)",
+      top_vendors: "Größte Lieferanten (Ausgaben)", today: "Heute", nothing_today: "Für heute ist nichts geplant.", due_call: "Anruf fällig",
+      longest: "Am längsten ohne Kontakt", workers_latest: "Fütterung: letzter Tag", recent: "Letzte Aktivität", view_all: "Alle anzeigen",
+      new: "Neu", new_customer: "Neuer Abnehmer", new_vendor: "Neuer Lieferant", new_contact: "Neuer Kontakt", new_deal: "Neues Geschäft",
+      new_call: "Neue Aktivität", new_task: "Neue Aufgabe", new_worker: "Neue Person", new_role: "Neue Rolle",
+      search: "Suchen", all: "Alle", favourites: "Favoriten", name: "Name", type: "Typ", status: "Status", owner: "Zuständig",
+      volume: "Volumen dieses Jahr", spend: "Ausgaben dieses Jahr", last_booking: "Letzte Buchung", contract_end: "Vertragsende",
+      organisation: "Organisation", title: "Funktion", phone: "Telefon", email_addr: "E-Mail", last_contact: "Letzter Kontakt", language: "Sprache",
+      city: "Ort", country: "Land", level: "Bereichsebene", notes: "Notizen", code: "Kürzel", contract_start: "Vertragsbeginn",
+      customer: "Abnehmer", supplier: "Lieferant", stage: "Phase", value: "Wert (EUR)", expected: "Erwartet", when: "Wann", topic: "Thema", contact: "Kontakt",
+      outcome: "Ergebnis", area: "Bereich", priority: "Priorität", deadline: "Frist", reason: "Warum diese Priorität", next: "Nächster Schritt",
+      job: "Tätigkeit", role: "Rolle", operator: "CowConnect-Bedienername", username: "Anmeldename", password: "Neues Passwort", active: "Aktiv",
+      kind: "Art", place: "Ort", opened: "Eröffnet", resolved_on: "Gelöst am", description: "Beschreibung", resolution: "Lösung",
+      valid_from: "Gültig ab", valid_until: "Gültig bis", link: "Link (Datei oder Webadresse)",
+      save: "Speichern", delete: "Löschen", cancel: "Abbrechen", close: "Schließen", saved: "Gespeichert.", deleted: "Gelöscht.", confirm_delete: "{name} löschen?",
+      showing: "{a} von {b}", none_here: "Hier ist noch nichts.", sample_tag: "Beispiel", contacts_of: "Kontakte", deals_of: "Geschäfte",
+      calls_of: "Aktivitäten", cases_of: "Vorgänge", docs_of: "Dokumente", ends_in: "endet in {n} Tagen", ended: "beendet", no_access: "Kein Zugriff auf diese Seite.",
+      sample_banner: "Dieses CRM zeigt erfundene Beispieldaten. Admin kann sie mit einem Klick entfernen.",
+      upcoming: "Anstehend", history: "Verlauf", accept: "Annehmen", decline: "Ablehnen", copy_link: "Link „Termin anfragen“ kopieren",
+      link_copied: "Link kopiert.", requested_by: "Angefragt von {name}", no_time: "Keine Zeit angegeben",
+      board: "Board", total: "Gesamt", open_deals: "{n} offene Geschäfte", odds: "{n} % Chance", drag_hint: "Karte in eine andere Phase ziehen.",
+      tiles_urgent: "dringend", tiles_waiting: "erledigt gemeldet, Prüfung offen", tiles_noowner: "ohne Zuständigen", tiles_decision: "warten auf Entscheidung",
+      all_tasks: "Alle Aufgaben", g_waiting: "Erledigt gemeldet – Prüfung offen", g_urgent: "Dringend", g_week: "Diese Woche", g_later: "Später",
+      g_none: "Nichts zu tun", g_done: "Erledigt (letzte 30 Tage)", report_done: "Erledigt melden", confirm: "Bestätigen", not_done: "Nicht erledigt",
+      mark_done: "Erledigt", edit: "Bearbeiten", not_replied: "Nicht beantwortet", flow_open: "Offen", flow_reported: "Erledigt gemeldet", flow_confirmed: "Bestätigt",
+      feeding: "Fütterung", loads: "Ladungen", accuracy: "Genauigkeit", planned_actual: "{a} von {p} kg geplant", groups: "Futtergruppen",
+      first_last: "{f} bis {l}", login_yes: "Hat Anmeldung", login_no: "Keine Anmeldung", from_cowconnect: "Aufbau wie CowConnect-Futterdaten (Beispieldaten)",
+      everyone: "Alle", rep_pipeline: "Pipeline-Wert nach Phase", rep_calls: "Aktivitäten nach Art", rep_feed: "Futterladungen je Mitarbeitendem, letzte 8 Wochen",
+      rep_cust: "Abnehmer nach Erlös dieses Jahr", rep_vend: "Lieferantenausgaben nach Art", rep_tasks: "Offene Aufgaben nach Priorität",
+      rep_cases: "Offene Vorgänge nach Art", rep_docs: "Dokumente nach Status",
+      farm: "Betrieb", farm_name: "Name des Betriebs", sample_data: "Beispieldaten", sample_n: "{n} Beispieldatensätze", remove_sample: "Beispieldaten entfernen",
+      remove_confirm: "Alle Beispieldaten entfernen? Eigene Daten bleiben erhalten.", import_contacts: "Kontakte importieren (CSV)",
+      import_feed: "Futterladungen importieren (CowConnect-CSV)", import_hint: "CSV mit Kopfzeile. Kontakte: name, organisation, title, phone, email, language. Futter: Datum, Gruppe, operatorName, Futtermittelbezeichnung, plannedQuantity, Menge, accuracy.",
+      imported: "{n} Zeilen hinzugefügt.", languages: "Sprachen", default_lang: "Standardsprache für alle", add_lang: "Sprache hinzufügen",
+      lang_code: "Code (z. B. nl)", lang_name: "Name", translate: "Übersetzen", only_missing: "Nur nicht übersetzte", missing_n: "{n} nicht übersetzt",
+      changelog: "Änderungsprotokoll", rights: "Rechte je Modul", none: "Kein Zugriff", see: "Lesen", edit_r: "Bearbeiten", data_sources: "Datenquellen",
+      ds_hint: "Woher echte Betriebsdaten kämen (nur Struktur): siehe app/DATA_SOURCES.md.",
+      pages_buttons: "Seiten und Schaltflächen", pb_hint: "Festlegen, welche Seiten und oberen Schaltflächen alle sehen. Die Rollen bestimmen weiterhin, wer was öffnen darf.",
+      pages: "Seiten im Menü", buttons: "Schaltflächen oben", shown: "Sichtbar", hidden: "Ausgeblendet",
+      btn_search: "Suche", btn_new: "Neu", btn_today: "Heute", btn_email: "E-Mail", btn_booklink: "Link „Termin anfragen“", btn_bell: "Benachrichtigungen",
+      btn_lang: "Sprache", btn_theme: "Hell / dunkel",
+      o_dairy: "Molkerei (Milchabnehmer)", o_cattle_buyer: "Viehhändler", o_biogas: "Biogas / Energie", o_crop_buyer: "Getreideabnehmer", o_private: "Privat",
+      o_other: "Sonstiges", o_lead: "Interessent", o_active: "Aktiv", o_paused: "Pausiert", o_former: "Ehemalig", o_feed_supplier: "Futtermittellieferant",
+      o_vet: "Tierarzt", o_breeding: "Zucht", o_machinery: "Landtechnik", o_service: "Dienstleistung", o_advisor: "Berater", o_farm: "Unser Betrieb",
+      o_customer: "Abnehmer", o_vendor: "Lieferant", o_first_call: "Erstgespräch", o_demo: "Vorführung / Besuch", o_proposal: "Angebot", o_won: "Gewonnen",
+      o_lost: "Verloren", o_requested: "Angefragt", o_planned: "Geplant", o_done: "Erledigt", o_missed: "Verpasst", o_cancelled: "Abgesagt",
+      o_urgent: "Dringend", o_week: "Diese Woche", o_later: "Später", o_none: "Nichts zu tun", o_decision: "Entscheidung nötig", o_reported: "Erledigt gemeldet",
+      o_notdone: "Nicht erledigt", o_confirmed: "Bestätigt", o_fin: "Finanzen", o_prod: "Produkt und Abnehmer", o_animal: "Prozesse: Tier",
+      o_plant: "Prozesse: Pflanze", o_res: "Ressourcen", o_platform: "Plattform", o_app: "App", o_sec: "Sicherheit", o_kb: "Wissen", o_gen: "Allgemein",
+      o_planning: "Planung", o_review: "Prüfung",
+      o_call: "Anruf", o_visit: "Hofbesuch", o_inspection: "Kontrolle", o_meeting: "Besprechung",
+      o_quality: "Milchqualität", o_animal_health: "Tiergesundheit", o_supply: "Lieferung", o_equipment: "Technik", o_safety: "Arbeitssicherheit", o_complaint: "Reklamation",
+      o_high: "Hoch", o_medium: "Mittel", o_low: "Niedrig", o_open: "Offen", o_in_progress: "In Arbeit", o_waiting: "Wartet", o_resolved: "Gelöst", o_closed: "Abgeschlossen",
+      o_certificate: "Zertifikat", o_contract: "Vertrag", o_sop: "Arbeitsanweisung", o_inspection_report: "Prüfbericht",
+      l_finance: "Finanzen", l_product: "Produkt und Abnehmer", l_process: "Interne Prozesse", l_resources: "Ressourcen", l_foundation: "Fundament",
+      new_project: "Neues Projekt", prj_sub: "Jedes Betriebsprojekt mit seinen Schritten und seinem Fortschritt.", active_projects: "Aktive Projekte", steps_week: "Schritte erledigt diese Woche",
+      next_due: "Als Nächstes fällig", overall: "Gesamtfortschritt", in_days: "in {n} Tagen", days_ago: "{n} Tage überfällig", of_steps: "{a} von {b}",
+      all_done: "Alles erledigt", no_steps: "Noch keine Schritte", steps: "Schritte", add_step: "Schritt hinzufügen", progress_updates: "Fortschrittsberichte",
+      add_update: "Bericht hinzufügen", update_ph: "Was ist passiert? z. B. Angebote erhalten, Tierarzttermin gebucht", due: "Fällig", start: "Beginn",
+      subtitle: "Wo / was", open: "Öffnen",
+      sch_sub: "Aktivitäten, Hofbesuche, Fristen, Projekttermine und Vertragsenden in einem Kalender.", today_btn: "Heute", prev: "Zurück", next_m: "Weiter",
+      v_week: "Woche", v_month: "Monat", v_agenda: "Liste",
+      ev_call: "Aktivität", ev_task: "Aufgabenfrist", ev_deal: "Geschäft erwartet", ev_project: "Projekt fällig", ev_contract: "Vertragsende", ev_case: "Vorgang fällig", more_n: "+{n} weitere",
+      td_sub: "Alles, was heute Ihre Aufmerksamkeit braucht.", calls_today: "Aktivitäten heute", tasks_due: "Überfällige und dringende Aufgaben", steps_next: "Nächste Projektschritte",
+      contracts_soon: "Verträge, die in 30 Tagen enden", nothing: "Nichts vorhanden.", late: "überfällig",
+      em_sub: "An Abnehmer, Lieferanten und Mitarbeitende schreiben. Jede E-Mail wird protokolliert.", compose: "E-Mail schreiben", to: "An",
+      or_email: "oder E-Mail-Adresse eingeben", template: "Vorlage", subject: "Betreff", message: "Nachricht",
+      send_app: "In meinem E-Mail-Programm öffnen", log_only: "Nur protokollieren", sent_log: "Gesendete E-Mails", email_logged: "E-Mail im Protokoll gespeichert.",
+      write_email: "E-Mail schreiben", tpl_none: "Keine Vorlage", tpl_followup: "Nachfassen", tpl_renewal: "Vertragsverlängerung",
+      tpl_confirm: "Terminbestätigung", tpl_thanks: "Dankeschön",
+      notif: "Benachrichtigungen", notif_none: "Alles in Ordnung. Nichts braucht Aufmerksamkeit.", n_requests: "{n} Terminanfragen",
+      n_overdue: "{n} überfällige Aufgaben", n_contracts: "{n} Verträge enden in 30 Tagen", n_projects: "{n} Projekte in 7 Tagen fällig",
+      n_missed: "{n} verpasste Aktivitäten diese Woche", n_cases: "{n} Vorgänge mit hoher Priorität offen", n_docs: "{n} Dokumente laufen in 60 Tagen ab",
+      search_all: "Abnehmer, Lieferanten, Kontakte, Vorgänge, Dokumente, Projekte, Aufgaben suchen…", export: "CSV exportieren",
+      prj_in_progress: "Laufende Projekte",
+      new_case: "Neuer Vorgang", cases_sub: "Probleme bei Milchqualität, Tiergesundheit, Lieferung und Technik, verfolgt bis zur Lösung.",
+      open_cases: "Offene Vorgänge", high_n: "{n} mit hoher Priorität", overdue_n: "{n} überfällig", resolved_month: "Gelöst in 30 Tagen",
+      new_document: "Neues Dokument", docs_sub: "Zertifikate, Verträge, Arbeitsanweisungen und Prüfberichte mit Ablaufdatum.",
+      valid: "Gültig", expiring: "Läuft in 60 Tagen ab", expired: "Abgelaufen", no_expiry: "Kein Ablaufdatum", open_link: "Öffnen",
+      act_sub: "Anrufe, Hofbesuche, Dienstleistungen, Kontrollen und Besprechungen mit Partnern.",
+      visits_week: "Besuche und Dienste, 7 Tage", feed_acc: "Fütterungsgenauigkeit", latest_day: "letzter Tag", docs_expiring: "Ablaufende Dokumente",
+      within_60: "in 60 Tagen", expired_n: "{n} abgelaufen", overdue_lbl: "Überfällig", open_cases_list: "Offene Vorgänge", visits_list: "Besuche und Dienste",
     } },
   };
   let LANG = null, lang = "en";
@@ -175,6 +287,10 @@
     org_kind: ["farm", "customer", "vendor", "other"], stage: ["lead", "first_call", "demo", "proposal", "won", "lost"],
     call_status: ["requested", "planned", "done", "missed", "cancelled"], prio: ["urgent", "week", "later", "none"],
     project_status: ["planning", "active", "review", "done", "paused"],
+    call_kind: ["call", "visit", "service", "inspection", "meeting"],
+    case_kind: ["quality", "animal_health", "supply", "equipment", "safety", "complaint"],
+    case_priority: ["high", "medium", "low"], case_status: ["open", "in_progress", "waiting", "resolved", "closed"],
+    doc_kind: ["certificate", "contract", "sop", "inspection_report", "other"],
     task_status: ["active", "decision", "reported", "notdone", "confirmed", "done"],
     area: ["fin", "prod", "animal", "plant", "res", "platform", "app", "sec", "kb", "gen"], level: ["", "finance", "product", "process", "resources", "foundation"],
   };
@@ -187,18 +303,22 @@
     vendors: [["name", "text", 1, 1], ["type", "enum:vendor_type"], ["status", "enum:vendor_status"], ["contract_start", "date"], ["contract_end", "date"], ["owner_id", "person"], ["notes", "long", 0, 1]],
     contacts: [["name", "text", 1, 1], ["org", "org", 0, 1], ["title", "text"], ["language", "text"], ["phone", "text"], ["email", "text"], ["last_contact", "date"], ["notes", "long", 0, 1]],
     deals: [["title", "text", 1, 1], ["customer_id", "customer"], ["stage", "enum:stage"], ["value", "num"], ["expected", "date"], ["owner_id", "person"], ["notes", "long", 0, 1]],
-    calls: [["topic", "text", 1, 1], ["at", "datetime"], ["status", "enum:call_status"], ["customer_id", "customer"], ["contact_id", "contact"], ["owner_id", "person"], ["outcome", "long", 0, 1]],
+    calls: [["topic", "text", 1, 1], ["kind", "enum:call_kind"], ["at", "datetime"], ["status", "enum:call_status"], ["place", "text"], ["vendor_id", "supplier"], ["customer_id", "customer"], ["contact_id", "contact"], ["owner_id", "person"], ["outcome", "long", 0, 1]],
+    cases: [["title", "text", 1, 1], ["kind", "enum:case_kind"], ["priority", "enum:case_priority"], ["status", "enum:case_status"], ["owner_id", "person"], ["vendor_id", "supplier"], ["customer_id", "customer"], ["opened", "date"], ["due", "date"], ["resolved_on", "date"], ["description", "long", 0, 1], ["resolution", "long", 0, 1]],
+    documents: [["title", "text", 1, 1], ["kind", "enum:doc_kind"], ["owner_id", "person"], ["valid_from", "date"], ["valid_until", "date"], ["vendor_id", "supplier"], ["customer_id", "customer"], ["link", "text", 0, 1], ["notes", "long", 0, 1]],
     tasks: [["title", "text", 1, 1], ["prio", "enum:prio"], ["status", "enum:task_status"], ["area", "enum:area"], ["owner_id", "person"], ["deadline", "date"], ["reason", "text", 0, 1], ["next", "text", 0, 1]],
     projects: [["title", "text", 1, 1], ["subtitle", "text", 0, 1], ["status", "enum:project_status"], ["owner_id", "person"], ["customer_id", "customer"], ["start", "date"], ["due", "date"], ["notes", "long", 0, 1]],
     people: [["name", "text", 1, 1], ["job", "text"], ["org", "org"], ["role_id", "role"], ["operator_name", "text"], ["email", "text"], ["phone", "text"], ["username", "text"], ["password", "password"], ["active", "bool"]],
   };
   const LABEL = { name: "name", type: "type", status: "status", owner_id: "owner", code: "code", city: "city", country: "country", level: "level", notes: "notes",
-    contract_start: "contract_start", contract_end: "contract_end", org: "organisation", title: "title", language: "language", phone: "phone", email: "email",
+    contract_start: "contract_start", contract_end: "contract_end", org: "organisation", title: "title", language: "language", phone: "phone", email: "email_addr", vendor_id: "supplier", kind: "kind", place: "place",
+    opened: "opened", resolved_on: "resolved_on", description: "description", resolution: "resolution", valid_from: "valid_from",
+    valid_until: "valid_until", link: "link", priority: "priority",
     last_contact: "last_contact", customer_id: "customer", stage: "stage", value: "value", expected: "expected", topic: "topic", at: "when", contact_id: "contact",
     outcome: "outcome", prio: "priority", area: "area", deadline: "deadline", reason: "reason", next: "next", job: "job", role_id: "role",
     operator_name: "operator", username: "username", password: "password", active: "active", subtitle: "subtitle", start: "start", due: "due" };
   const MODULE_OF = { customers: "customers", vendors: "vendors", contacts: "contacts", deals: "pipeline", calls: "calls", tasks: "tasks", people: "people", roles: "roles",
-    projects: "projects", project_steps: "projects", project_updates: "projects", emails: "email" };
+    projects: "projects", project_steps: "projects", project_updates: "projects", emails: "email", cases: "cases", documents: "documents" };
 
   function field(entity, [f, kind, req, full], rec) {
     const v = rec[f] == null ? "" : rec[f];
@@ -209,6 +329,7 @@
     if (kind.startsWith("enum:")) input = sel(ENUM[kind.slice(5)].map((o) => `<option value="${o}"${o === v ? " selected" : ""}>${esc(o ? opt(o) : "–")}</option>`).join(""));
     else if (kind === "person") input = sel(`<option value="">–</option>` + S.data.people.map((p) => `<option value="${p.id}"${p.id === v ? " selected" : ""}>${esc(p.name)}</option>`).join(""));
     else if (kind === "role") input = sel(`<option value="">–</option>` + S.data.roles.map((r) => `<option value="${r.id}"${r.id === v ? " selected" : ""}>${esc(r.name)}</option>`).join(""));
+    else if (kind === "supplier") input = sel(`<option value="">–</option>` + S.data.vendors.map((c) => `<option value="${c.id}"${c.id === v ? " selected" : ""}>${esc(c.name)}</option>`).join(""));
     else if (kind === "customer") input = sel(`<option value="">–</option>` + S.data.customers.map((c) => `<option value="${c.id}"${c.id === v ? " selected" : ""}>${esc(c.name)}</option>`).join(""));
     else if (kind === "contact") input = sel(`<option value="">–</option>` + S.data.contacts.map((c) => `<option value="${c.id}"${c.id === v ? " selected" : ""}>${esc(c.name)}${c.org_id ? " · " + esc(orgName(c.org_kind, c.org_id) || "") : ""}</option>`).join(""));
     else if (kind === "org") {
@@ -259,7 +380,7 @@
     rec = Object.assign({}, preset || {}, rec || {});
     S.drawer = rec.id ? { entity, id: rec.id } : null;
     const isNew = !rec.id, editable = can(MODULE_OF[entity], "edit");
-    const titleKey = { customers: "new_customer", vendors: "new_vendor", contacts: "new_contact", deals: "new_deal", calls: "new_call", tasks: "new_task", people: "new_worker", projects: "new_project" }[entity];
+    const titleKey = { customers: "new_customer", vendors: "new_vendor", contacts: "new_contact", deals: "new_deal", calls: "new_call", tasks: "new_task", people: "new_worker", projects: "new_project", cases: "new_case", documents: "new_document" }[entity];
     let extra = "";
     if (!isNew && entity === "projects") extra = projectPanel(rec);
     if (!isNew && (entity === "contacts" || entity === "people") && rec.email && can("email", "edit"))
@@ -287,12 +408,17 @@
     const kind = entity === "customers" ? "customer" : "vendor";
     const cons = S.data.contacts.filter((c) => c.org_kind === kind && c.org_id === rec.id);
     const deals = entity === "customers" ? S.data.deals.filter((d) => d.customer_id === rec.id) : [];
-    const calls = entity === "customers" ? S.data.calls.filter((c) => c.customer_id === rec.id) : [];
+    const fk = entity === "customers" ? "customer_id" : "vendor_id";
+    const calls = S.data.calls.filter((c) => c[fk] === rec.id);
+    const cases = (S.data.cases || []).filter((c) => c[fk] === rec.id);
+    const docs = (S.data.documents || []).filter((c) => c[fk] === rec.id);
     const list = (title, items, fn) => items.length ? `<div class="section-title">${esc(title)}</div><div class="rows">${items.map(fn).join("")}</div>` : "";
     return `${rec.volume_eur != null ? `<div class="ro"><span class="muted">${esc(t(entity === "customers" ? "volume" : "spend"))} · ${esc(t("read_only_fin"))}</span><b class="num">${eur(rec.volume_eur)}</b><span class="muted">${esc(rec.volume_note || "")}${rec.last_booking ? " · " + esc(t("last_booking")) + ": " + esc(fdate(rec.last_booking)) : ""}</span></div>` : ""}
       ${list(t("contacts_of"), cons, (c) => `<div class="row-item click" data-open="contacts:${c.id}">${ava(c.name)}<div class="main"><b>${esc(c.name)}</b><small>${esc(c.title || "")} ${esc(c.phone || "")}</small></div></div>`)}
       ${list(t("deals_of"), deals, (d) => `<div class="row-item click" data-open="deals:${d.id}"><span class="dot" style="background:${STAGE_C[d.stage]}"></span><div class="main"><b>${esc(d.title)}</b><small>${esc(opt(d.stage))}</small></div><div class="end num">${eur(d.value)}</div></div>`)}
-      ${list(t("calls_of"), calls, (c) => `<div class="row-item click" data-open="calls:${c.id}"><div class="ico-box">${ICON.phone}</div><div class="main"><b>${esc(c.topic)}</b><small>${esc(fdate(c.at))} ${esc(ftime(c.at))} · ${esc(opt(c.status))}</small></div></div>`)}`;
+      ${list(t("calls_of"), calls, (c) => `<div class="row-item click" data-open="calls:${c.id}"><div class="ico-box">${ICON.phone}</div><div class="main"><b>${esc(c.topic)}</b><small>${esc(opt(c.kind || "call"))} · ${esc(fdate(c.at))} ${esc(ftime(c.at))} · ${esc(opt(c.status))}</small></div></div>`)}
+      ${list(t("cases_of"), cases, (c) => `<div class="row-item click" data-open="cases:${c.id}"><span class="badge ${PRIO_C[c.priority]}">${esc(opt(c.priority))}</span><div class="main"><b>${esc(c.title)}</b><small>${esc(opt(c.kind))} · ${esc(opt(c.status))}</small></div></div>`)}
+      ${list(t("docs_of"), docs, (c) => `<div class="row-item click" data-open="documents:${c.id}"><div class="ico-box">${ICON.doc}</div><div class="main"><b>${esc(c.title)}</b><small>${esc(opt(c.kind))}${c.valid_until ? " · " + esc(t("valid_until")) + " " + esc(fdate(c.valid_until)) : ""}</small></div>${docBadge(c)}</div>`)}`;
   }
 
   /* ================= workers' feeding activity ================= */
@@ -326,51 +452,132 @@
   /* ================= pages ================= */
   const PAGES = {};
 
+  /* ---------- production helpers ---------- */
+  const PRIO_C = { high: "red", medium: "amber", low: "" };
+  const KIND_C = { call: "blue", visit: "green", service: "violet", inspection: "amber", meeting: "" };
+  const CST_C = { open: "red", in_progress: "blue", waiting: "amber", resolved: "green", closed: "" };
+  function docState(d) {
+    if (!d.valid_until) return "none";
+    const n = daysBetween(today(), d.valid_until);
+    return n < 0 ? "expired" : n <= 60 ? "expiring" : "valid";
+  }
+  function docBadge(d) {
+    const s = docState(d);
+    if (s === "none") return `<span class="badge">${esc(t("no_expiry"))}</span>`;
+    const n = daysBetween(today(), d.valid_until);
+    return s === "expired" ? `<span class="badge red">${esc(t("expired"))}</span>` : s === "expiring" ? `<span class="badge amber">${esc(t("ends_in", { n }))}</span>` : `<span class="badge green">${esc(t("valid"))}</span>`;
+  }
+  const openCases = () => (S.data.cases || []).filter((c) => !["resolved", "closed"].includes(c.status));
+  const partnerName = (r) => (byId("vendors", r.vendor_id) || {}).name || (byId("customers", r.customer_id) || {}).name || "";
+
   PAGES.overview = () => {
     const D = S.data, td = today();
-    const open = D.deals.filter((d) => !["won", "lost"].includes(d.stage));
-    const val = open.reduce((s, d) => s + (d.value || 0), 0), weighted = open.reduce((s, d) => s + (d.value || 0) * STAGE_ODDS[d.stage] / 100, 0);
-    const wk = D.calls.filter((c) => c.status === "planned" && c.at && c.at.slice(0, 10) >= td && daysBetween(td, c.at.slice(0, 10)) <= 7);
+    const cases = openCases(), high = cases.filter((c) => c.priority === "high");
+    const visits = D.calls.filter((c) => c.status === "planned" && c.at && c.at.slice(0, 10) >= td && daysBetween(td, c.at.slice(0, 10)) <= 7);
     const tasksOpen = D.tasks.filter((x) => !["done", "confirmed"].includes(x.status));
-    const reqs = D.calls.filter((c) => c.status === "requested");
-    const todayCalls = D.calls.filter((c) => c.at && c.at.slice(0, 10) === td && c.status === "planned");
     const urgent = tasksOpen.filter((x) => x.prio === "urgent");
-    const due = D.contacts.filter((c) => c.last_contact).sort((a, b) => a.last_contact.localeCompare(b.last_contact)).slice(0, 5);
-    const topC = D.customers.filter((c) => c.volume_eur).sort((a, b) => b.volume_eur - a.volume_eur).slice(0, 5);
-    const topV = D.vendors.filter((c) => c.volume_eur).sort((a, b) => b.volume_eur - a.volume_eur).slice(0, 5);
-    const bars = (items, link) => { const max = Math.max(1, ...items.map((x) => x.volume_eur)); return `<div class="bars">${items.map((x, i) => `<div class="bar-row click" data-open="${link}:${x.id}" style="cursor:pointer"><span class="name">${esc(x.name)}</span><span class="track"><span class="fill" style="width:${(x.volume_eur / max) * 100}%;animation-delay:${i * 60}ms"></span></span><span class="num muted">${eur(x.volume_eur, true)}</span></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`}</div>`; };
-    const stages = ["lead", "first_call", "demo", "proposal"];
+    const reqs = D.calls.filter((c) => c.status === "requested");
+    const todayActs = D.calls.filter((c) => c.at && c.at.slice(0, 10) === td && c.status === "planned").sort((a, b) => a.at.localeCompare(b.at));
+    const docs = (D.documents || []).filter((d) => ["expiring", "expired"].includes(docState(d))).sort((a, b) => a.valid_until.localeCompare(b.valid_until));
     const latest = (D.feed_workers || []).map((w) => { const last = (D.feed_days || []).filter((d) => d.operator === w.operator).at(-1); return { w, last, p: D.people.find((p) => p.operator_name === w.operator) }; });
-    return head(fdate(td, { weekday: "long", day: "numeric", month: "long" }), t("overview"), t("welcome", { name: D.me.name }) + " " + t("ov_sub"), newBtn("tasks", "new_task")) + banner() + `
+    const lastDayAcc = latest.filter((x) => x.last && x.last.accuracy != null);
+    const acc = lastDayAcc.length ? Math.round((lastDayAcc.reduce((a, x) => a + x.last.accuracy, 0) / lastDayAcc.length) * 10) / 10 : null;
+    const due = D.contacts.filter((c) => c.last_contact).sort((a, b) => a.last_contact.localeCompare(b.last_contact)).slice(0, 4);
+    const topC = D.customers.filter((c) => c.volume_eur).sort((a, b) => b.volume_eur - a.volume_eur).slice(0, 4);
+    const topV = D.vendors.filter((c) => c.volume_eur).sort((a, b) => b.volume_eur - a.volume_eur).slice(0, 4);
+    const bars = (items, link) => { const max = Math.max(1, ...items.map((x) => x.volume_eur)); return `<div class="bars">${items.map((x, i) => `<div class="bar-row" data-open="${link}:${x.id}" style="cursor:pointer"><span class="name">${esc(x.name)}</span><span class="track"><span class="fill" style="width:${(x.volume_eur / max) * 100}%;animation-delay:${i * 60}ms"></span></span><span class="num muted">${eur(x.volume_eur, true)}</span></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`}</div>`; };
+    const live = D.projects.filter((p) => ["active", "review"].includes(p.status));
+    const vis = (pg) => pageVisible(pg) && can(PERM_OF[pg]);
+    return head(fdate(td, { weekday: "long", day: "numeric", month: "long" }), t("overview"), t("welcome", { name: D.me.name }) + " " + t("ov_sub"), vis("cases") ? newBtn("cases", "new_case", { status: "open", priority: "medium", opened: td }) : newBtn("tasks", "new_task")) + banner() + `
       <div class="cards">
-        ${card(0, t("open_pipeline"), "eur:" + val, t("weighted", { v: eur(weighted, true) }), ICON.euro, "accent", "pipeline")}
-        ${card(1, t("calls_week"), wk.length, t("today_n", { n: todayCalls.length }), ICON.phone, "", "calls")}
+        ${card(0, t("open_cases"), cases.length, t("high_n", { n: high.length }), ICON.alert, high.length ? "accent" : "", "cases")}
+        ${card(1, t("visits_week"), visits.length, t("today_n", { n: todayActs.length }), ICON.calendar, "", "schedule")}
         ${card(2, t("open_tasks"), tasksOpen.length, t("urgent_n", { n: urgent.length }), ICON.task, "", "tasks")}
-        ${card(3, t("requests"), reqs.length, t("from_form"), ICON.inbox, "", "calls")}
+        ${card(3, t("feed_acc"), acc == null ? "–" : "pct:" + acc, t("latest_day"), ICON.feed, "", "workers")}
       </div>
       <div class="grid two">
         <div class="grid">
-          <div class="panel reveal" style="--i:4"><div class="panel-head"><h3>${esc(t("pipeline"))}</h3><a href="#/pipeline">${esc(t("view_all"))} →</a></div>
-            <div class="cards" style="margin:0">${stages.map((s, i) => { const l = open.filter((d) => d.stage === s); return `<div class="card click" data-go="pipeline" style="border-left:3px solid ${STAGE_C[s]}"><div class="label">${esc(opt(s))}</div><div class="value" data-to="${l.reduce((a, d) => a + d.value, 0)}" data-fmt="eur">0</div><div class="sub">${l.length} · ${esc(t("odds", { n: STAGE_ODDS[s] }))}</div></div>`; }).join("")}</div></div>
-          <div class="panel reveal" style="--i:5"><div class="panel-head"><h3>${esc(t("volume_year"))}</h3><span class="sub">${esc(t("read_only_fin"))}</span></div>
-            <div class="grid halves"><div><div class="section-title" style="margin-top:0">${esc(t("top_customers"))}</div>${bars(topC, "customers")}</div><div><div class="section-title" style="margin-top:0">${esc(t("top_vendors"))}</div>${bars(topV, "vendors")}</div></div></div>
-          <div class="panel reveal" style="--i:6"><div class="panel-head"><h3>${esc(t("workers_latest"))}</h3><a href="#/workers">${esc(t("view_all"))} →</a></div>
+          <div class="panel reveal" style="--i:4"><div class="panel-head"><h3>${esc(t("open_cases_list"))}</h3><a href="#/cases">${esc(t("view_all"))} →</a></div>
+            <div class="rows">${cases.sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.priority] - { high: 0, medium: 1, low: 2 }[b.priority])).slice(0, 5).map((c) => `<div class="row-item click" data-open="cases:${c.id}"><span class="badge ${PRIO_C[c.priority]}">${esc(opt(c.priority))}</span><div class="main"><b>${esc(c.title)}</b><small>${esc(opt(c.kind))}${partnerName(c) ? " · " + esc(partnerName(c)) : ""}${c.owner_id ? " · " + esc(personName(c.owner_id)) : ""}</small></div><span class="badge ${CST_C[c.status]}">${esc(opt(c.status))}</span></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`}</div></div>
+          <div class="panel reveal" style="--i:5"><div class="panel-head"><h3>${esc(t("workers_latest"))}</h3><a href="#/workers">${esc(t("view_all"))} →</a></div>
             <div class="rows">${latest.map(({ w, last, p }) => `<div class="row-item${p ? " click" : ""}"${p ? ` data-open="people:${p.id}"` : ""}>${ava(p ? p.name : w.operator)}<div class="main"><b>${esc(p ? p.name : w.operator)}</b><small>${esc(last ? fdate(last.day) : "")} · ${last ? last.loads : 0} ${esc(t("loads"))}</small></div><div class="end"><span class="badge ${last && last.accuracy < 97 ? "amber" : "green"}">${last ? last.accuracy : "–"}%</span></div></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`}</div></div>
+          ${live.length && vis("projects") ? `<div class="panel reveal" style="--i:6"><div class="panel-head"><h3>${esc(t("prj_in_progress"))}</h3><a href="#/projects">${esc(t("view_all"))} →</a></div>
+            <div class="rows">${live.map((p) => { const pr = progressOf(p.id); return `<div class="row-item click" data-open="projects:${p.id}"><div class="main"><b>${esc(p.title)}</b><small>${esc(t("of_steps", { a: pr.done, b: pr.n }))} · ${esc(pr.cur ? pr.cur.title : t("all_done"))}</small><div class="track" style="margin-top:6px"><span class="fill" style="width:${pr.pct}%"></span></div></div><div class="end num">${pr.pct}%</div></div>`; }).join("")}</div></div>` : ""}
+          <div class="panel reveal" style="--i:7"><div class="panel-head"><h3>${esc(t("volume_year"))}</h3><span class="sub">${esc(t("read_only_fin"))}</span></div>
+            <div class="grid halves"><div><div class="section-title" style="margin-top:0">${esc(t("top_vendors"))}</div>${bars(topV, "vendors")}</div><div><div class="section-title" style="margin-top:0">${esc(t("top_customers"))}</div>${bars(topC, "customers")}</div></div></div>
         </div>
         <div class="grid">
-          <div class="panel reveal" style="--i:5"><div class="panel-head"><h3>${esc(t("today"))}</h3><span class="sub">${todayCalls.length + urgent.length}</span></div>
-            <div class="rows">${todayCalls.map((c) => `<div class="row-item click" data-open="calls:${c.id}"><span class="badge blue">${esc(ftime(c.at))}</span><div class="main"><b>${esc(c.topic)}</b><small>${esc((byId("customers", c.customer_id) || {}).name || "")}</small></div></div>`).join("")}
-              ${urgent.map((x) => `<div class="row-item click" data-go="tasks"><span class="dot urgent"></span><div class="main"><b>${esc(x.title)}</b><small>${esc(personName(x.owner_id) || t("tiles_noowner"))}</small></div></div>`).join("")}
+          <div class="panel reveal" style="--i:5"><div class="panel-head"><h3>${esc(t("today"))}</h3><span class="sub">${todayActs.length + urgent.length + reqs.length}</span></div>
+            <div class="rows">${todayActs.map((c) => `<div class="row-item click" data-open="calls:${c.id}"><span class="badge blue">${esc(ftime(c.at))}</span><div class="main"><b>${esc(c.topic)}</b><small>${esc(opt(c.kind || "call"))}${partnerName(c) ? " · " + esc(partnerName(c)) : ""}${c.place ? " · " + esc(c.place) : ""}</small></div></div>`).join("")}
+              ${urgent.map((x) => `<div class="row-item click" data-open="tasks:${x.id}"><span class="dot urgent"></span><div class="main"><b>${esc(x.title)}</b><small>${esc(personName(x.owner_id) || t("tiles_noowner"))}</small></div></div>`).join("")}
               ${reqs.map((c) => `<div class="row-item click" data-open="calls:${c.id}"><span class="badge amber">${esc(opt("requested"))}</span><div class="main"><b>${esc(c.topic)}</b><small>${esc(c.req_name)} · ${esc(c.req_org || "")}</small></div></div>`).join("")}
-              ${!todayCalls.length && !urgent.length && !reqs.length ? `<div class="empty">${esc(t("nothing_today"))}</div>` : ""}</div></div>
-          <div class="panel reveal" style="--i:6"><div class="panel-head"><h3>${esc(t("due_call"))}</h3><span class="sub">${esc(t("longest"))}</span></div>
+              ${!todayActs.length && !urgent.length && !reqs.length ? `<div class="empty">${esc(t("nothing_today"))}</div>` : ""}</div></div>
+          <div class="panel reveal" style="--i:6"><div class="panel-head"><h3>${esc(t("visits_list"))}</h3><a href="#/schedule">${esc(t("view_all"))} →</a></div>
+            <div class="rows">${visits.filter((c) => (c.kind || "call") !== "call").sort((a, b) => a.at.localeCompare(b.at)).slice(0, 5).map((c) => `<div class="row-item click" data-open="calls:${c.id}"><div class="ico-box">${ICON.calendar}</div><div class="main"><b>${esc(c.topic)}</b><small>${esc(fdate(c.at, { weekday: "short", day: "numeric", month: "short" }))} ${esc(ftime(c.at))} · ${esc(opt(c.kind))}${partnerName(c) ? " · " + esc(partnerName(c)) : ""}</small></div></div>`).join("") || `<div class="empty">${esc(t("nothing"))}</div>`}</div></div>
+          <div class="panel reveal" style="--i:7"><div class="panel-head"><h3>${esc(t("docs_expiring"))}</h3><a href="#/documents">${esc(t("view_all"))} →</a></div>
+            <div class="rows">${docs.slice(0, 5).map((d) => `<div class="row-item click" data-open="documents:${d.id}"><div class="ico-box">${ICON.doc}</div><div class="main"><b>${esc(d.title)}</b><small>${esc(opt(d.kind))} · ${esc(fdate(d.valid_until))}</small></div>${docBadge(d)}</div>`).join("") || `<div class="empty">${esc(t("nothing"))}</div>`}</div></div>
+          <div class="panel reveal" style="--i:8"><div class="panel-head"><h3>${esc(t("due_call"))}</h3><span class="sub">${esc(t("longest"))}</span></div>
             <div class="rows">${due.map((c) => `<div class="row-item click" data-open="contacts:${c.id}">${ava(c.name)}<div class="main"><b>${esc(c.name)}</b><small>${daysBetween(c.last_contact, td)} d · ${esc(orgName(c.org_kind, c.org_id) || "")}</small></div><span class="ico-box">${ICON.phone}</span></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`}</div></div>
-          ${can("projects") && D.projects.some((p) => ["active", "review"].includes(p.status)) ? `<div class="panel reveal" style="--i:7"><div class="panel-head"><h3>${esc(t("prj_in_progress"))}</h3><a href="#/projects">${esc(t("view_all"))} →</a></div>
-            <div class="rows">${D.projects.filter((p) => ["active", "review"].includes(p.status)).map((p) => { const pr = progressOf(p.id); return `<div class="row-item click" data-open="projects:${p.id}"><div class="main"><b>${esc(p.title)}</b><small>${esc(t("of_steps", { a: pr.done, b: pr.n }))} · ${esc(pr.cur ? pr.cur.title : t("all_done"))}</small><div class="track" style="margin-top:6px"><span class="fill" style="width:${pr.pct}%"></span></div></div><div class="end num">${pr.pct}%</div></div>`; }).join("")}</div></div>` : ""}
-          ${can("admin") ? `<div class="panel reveal" style="--i:8"><div class="panel-head"><h3>${esc(t("recent"))}</h3><a href="#/admin">${esc(t("view_all"))} →</a></div><div class="rows" id="recent"><div class="empty">…</div></div></div>` : ""}
+          ${can("admin") ? `<div class="panel reveal" style="--i:9"><div class="panel-head"><h3>${esc(t("recent"))}</h3><a href="#/admin">${esc(t("view_all"))} →</a></div><div class="rows" id="recent"><div class="empty">…</div></div></div>` : ""}
         </div>
       </div>`;
   };
+
+  /* ---------- cases ---------- */
+  PAGES.cases = () => {
+    const D = S.data, td = today(), f = S.f.cases || (S.f.cases = { status: "active", kind: "", q: "" });
+    const all = D.cases || [];
+    const open = openCases();
+    const list = all.filter((c) => (f.status === "active" ? !["resolved", "closed"].includes(c.status) : !f.status || c.status === f.status) && (!f.kind || c.kind === f.kind) &&
+      (!f.q || (c.title + " " + c.description + " " + partnerName(c)).toLowerCase().includes(f.q.toLowerCase())))
+      .sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.priority] - { high: 0, medium: 1, low: 2 }[b.priority]) || (a.due || "9").localeCompare(b.due || "9"));
+    const overdue = open.filter((c) => c.due && c.due < td).length;
+    const resolved30 = all.filter((c) => c.resolved_on && daysBetween(c.resolved_on, td) <= 30).length;
+    const st = [["active", t("open_cases"), open.length]].concat(ENUM.case_status.map((s) => [s, opt(s), all.filter((c) => c.status === s).length]).filter((x) => x[2])).concat([["", t("all"), all.length]]);
+    const kinds = ENUM.case_kind.filter((k) => all.some((c) => c.kind === k));
+    return head(D.farm.name, t("cases"), t("cases_sub"), newBtn("cases", "new_case", { status: "open", priority: "medium", opened: td })) + `
+      <div class="cards">
+        ${card(0, t("open_cases"), open.length, "", ICON.alert, "accent")}
+        ${card(1, opt("high"), open.filter((c) => c.priority === "high").length, t("open_cases"), ICON.alert)}
+        ${card(2, t("overdue_lbl"), overdue, "", ICON.calendar)}
+        ${card(3, t("resolved_month"), resolved30, "", ICON.task)}
+      </div>
+      <div class="toolbar"><label class="search">${ICON.search}<input data-q="cases" value="${esc(f.q)}" placeholder="${esc(t("search"))}"></label>
+        <select class="mini" data-ckind><option value="">${esc(t("kind"))}: ${esc(t("all"))}</option>${kinds.map((k) => `<option value="${k}"${f.kind === k ? " selected" : ""}>${esc(opt(k))}</option>`).join("")}</select>
+        <span class="count">${esc(t("showing", { a: list.length, b: all.length }))}</span></div>
+      <div class="chips">${st.map(([v, l, n]) => `<button class="chip-btn${f.status === v ? " on" : ""}" data-cstatus="${v}">${esc(l)}<span class="n">${n}</span></button>`).join("")}</div>
+      <div class="table-wrap"><table><thead><tr><th>${esc(t("priority"))}</th><th>${esc(t("title"))}</th><th>${esc(t("kind"))}</th><th>${esc(t("status"))}</th><th>${esc(t("supplier"))} / ${esc(t("customer"))}</th><th>${esc(t("owner"))}</th><th>${esc(t("due"))}</th></tr></thead>
+      <tbody>${list.map((c, i) => `<tr class="reveal" style="--i:${Math.min(i, 12)}" data-open="cases:${c.id}"><td><span class="badge ${PRIO_C[c.priority]}">${esc(opt(c.priority))}</span></td>
+        <td class="wrap"><b>${esc(c.title)}</b>${sampleTag(c)}</td><td>${esc(opt(c.kind))}</td><td><span class="badge ${CST_C[c.status]}">${esc(opt(c.status))}</span></td>
+        <td>${esc(partnerName(c))}</td><td>${c.owner_id ? ava(personName(c.owner_id)) + " " + esc(personName(c.owner_id)) : ""}</td>
+        <td>${c.due ? esc(fdate(c.due, { day: "numeric", month: "short" })) + (c.due < td && !["resolved", "closed"].includes(c.status) ? ` <span class="badge red">${esc(t("late"))}</span>` : "") : ""}</td></tr>`).join("") ||
+        `<tr><td colspan="7" class="empty">${esc(t("none_here"))}</td></tr>`}</tbody></table></div>`;
+  };
+
+  /* ---------- documents ---------- */
+  PAGES.documents = () => {
+    const D = S.data, f = S.f.documents || (S.f.documents = { kind: "", q: "", state: "" });
+    const all = D.documents || [];
+    const list = all.filter((d) => (!f.kind || d.kind === f.kind) && (!f.state || docState(d) === f.state) && (!f.q || (d.title + " " + d.notes + " " + partnerName(d)).toLowerCase().includes(f.q.toLowerCase())))
+      .sort((a, b) => (a.valid_until || "9999").localeCompare(b.valid_until || "9999"));
+    const n = (s) => all.filter((d) => docState(d) === s).length;
+    const chips = [["", t("all"), all.length]].concat(ENUM.doc_kind.map((k) => [k, opt(k), all.filter((d) => d.kind === k).length]).filter((x) => x[2]));
+    return head(D.farm.name, t("documents"), t("docs_sub"), newBtn("documents", "new_document", { kind: "certificate" })) + `
+      <div class="cards">
+        <div class="card click reveal${f.state === "valid" ? " accent" : ""}" style="--i:0" data-dstate="valid"><div class="label">${esc(t("valid"))}<span class="badge-ico">${ICON.doc}</span></div><div class="value" data-to="${n("valid")}">0</div></div>
+        <div class="card click reveal${f.state === "expiring" ? " accent" : ""}" style="--i:1" data-dstate="expiring"><div class="label">${esc(t("expiring"))}<span class="badge-ico">${ICON.calendar}</span></div><div class="value" data-to="${n("expiring")}">0</div></div>
+        <div class="card click reveal${f.state === "expired" ? " accent" : ""}" style="--i:2" data-dstate="expired"><div class="label">${esc(t("expired"))}<span class="badge-ico">${ICON.alert}</span></div><div class="value" data-to="${n("expired")}">0</div></div>
+        <div class="card click reveal${f.state === "none" ? " accent" : ""}" style="--i:3" data-dstate="none"><div class="label">${esc(t("no_expiry"))}<span class="badge-ico">${ICON.doc}</span></div><div class="value" data-to="${n("none")}">0</div></div>
+      </div>
+      <div class="toolbar"><label class="search">${ICON.search}<input data-q="documents" value="${esc(f.q)}" placeholder="${esc(t("search"))}"></label><span class="count">${esc(t("showing", { a: list.length, b: all.length }))}</span></div>
+      <div class="chips">${chips.map(([v, l, c]) => `<button class="chip-btn${f.kind === v ? " on" : ""}" data-dkind="${v}">${esc(l)}<span class="n">${c}</span></button>`).join("")}</div>
+      <div class="table-wrap"><table><thead><tr><th>${esc(t("title"))}</th><th>${esc(t("kind"))}</th><th>${esc(t("supplier"))} / ${esc(t("customer"))}</th><th>${esc(t("owner"))}</th><th>${esc(t("valid_until"))}</th><th>${esc(t("status"))}</th><th></th></tr></thead>
+      <tbody>${list.map((d, i) => `<tr class="reveal" style="--i:${Math.min(i, 12)}" data-open="documents:${d.id}"><td class="wrap"><b>${esc(d.title)}</b>${sampleTag(d)}</td><td>${esc(opt(d.kind))}</td>
+        <td>${esc(partnerName(d))}</td><td>${esc(personName(d.owner_id))}</td><td>${esc(fdate(d.valid_until))}</td><td>${docBadge(d)}</td>
+        <td>${/^https?:\/\//.test(d.link || "") ? `<a class="btn small" href="${esc(d.link)}" target="_blank" rel="noopener noreferrer" data-stop>${esc(t("open_link"))}</a>` : ""}</td></tr>`).join("") ||
+        `<tr><td colspan="7" class="empty">${esc(t("none_here"))}</td></tr>`}</tbody></table></div>`;
+  };
+
   PAGES.overview.after = async () => {
     if (!can("admin") || !$("#recent")) return;
     try { S.audit = await api("GET", "/api/audit"); } catch (e) { return; }
@@ -415,7 +622,7 @@
       extraChips: `<button class="chip-btn${f.due ? " on" : ""}" data-due>${ICON.phone} ${esc(t("due_call"))}</button>`, cols: [
         { h: t("name"), v: (x) => `${ava(x.name)} <b style="margin-left:8px">${esc(x.name)}</b>${sampleTag(x)}` },
         { h: t("organisation"), v: (x) => esc(orgName(x.org_kind, x.org_id) || "") }, { h: t("title"), v: (x) => esc(x.title) },
-        { h: t("phone"), v: (x) => esc(x.phone) }, { h: t("email"), v: (x) => esc(x.email) },
+        { h: t("phone"), v: (x) => esc(x.phone) }, { h: t("email_addr"), v: (x) => esc(x.email) },
         { h: t("last_contact"), v: (x) => x.last_contact ? `${esc(fdate(x.last_contact))} <span class="muted">(${daysBetween(x.last_contact, today())} d)</span>` : "" }] });
     return html.replace('<div class="actions">', `<div class="actions">${can("contacts", "edit") ? `<label class="btn">${esc(t("import_contacts"))}<input type="file" accept=".csv,text/csv" data-import="contacts" hidden></label>` : ""}`);
   };
@@ -435,13 +642,16 @@
   };
 
   PAGES.calls = () => {
-    const D = S.data, f = S.f.calls || (S.f.calls = { tab: "upcoming" }), td = today();
+    const D = S.data, f = S.f.calls || (S.f.calls = { tab: "upcoming", kind: "" }), td = today();
+    const ofKind = (c) => !f.kind || (c.kind || "call") === f.kind;
     const reqs = D.calls.filter((c) => c.status === "requested");
-    const up = D.calls.filter((c) => c.status === "planned").sort((a, b) => (a.at || "").localeCompare(b.at || ""));
-    const hist = D.calls.filter((c) => ["done", "missed", "cancelled"].includes(c.status)).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+    const up = D.calls.filter((c) => c.status === "planned" && ofKind(c)).sort((a, b) => (a.at || "").localeCompare(b.at || ""));
+    const hist = D.calls.filter((c) => ["done", "missed", "cancelled"].includes(c.status) && ofKind(c)).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+    const kchips = [["", t("all"), D.calls.filter((c) => c.status !== "requested").length]].concat(ENUM.call_kind.map((k) => [k, opt(k), D.calls.filter((c) => c.status !== "requested" && (c.kind || "call") === k).length]).filter((x) => x[2]));
     const dueC = D.contacts.filter((c) => c.last_contact).sort((a, b) => a.last_contact.localeCompare(b.last_contact));
     const row = (c) => `<div class="row-item click" data-open="calls:${c.id}"><span class="badge ${c.status === "planned" ? "blue" : c.status === "done" ? "green" : c.status === "missed" ? "red" : "amber"}">${esc(ftime(c.at) || opt(c.status))}</span>
-      <div class="main"><b>${esc(c.topic)}</b>${sampleTag(c)}<small>${esc((byId("customers", c.customer_id) || {}).name || c.req_org || "")}${c.owner_id ? " · " + esc(personName(c.owner_id)) : ""}</small></div>${c.outcome ? `<div class="end muted">${esc(c.outcome)}</div>` : ""}</div>`;
+      <span class="badge ${KIND_C[c.kind || "call"]}">${esc(opt(c.kind || "call"))}</span>
+      <div class="main"><b>${esc(c.topic)}</b>${sampleTag(c)}<small>${esc(partnerName(c) || c.req_org || "")}${c.place ? " · " + esc(c.place) : ""}${c.owner_id ? " · " + esc(personName(c.owner_id)) : ""}</small></div>${c.outcome ? `<div class="end muted">${esc(c.outcome)}</div>` : ""}</div>`;
     let body;
     if (f.tab === "requests") body = reqs.map((c) => `<div class="row-item"><div class="ico-box">${ICON.inbox}</div><div class="main"><b>${esc(c.topic)}</b>${sampleTag(c)}<small>${esc(c.req_name)}${c.req_org ? " · " + esc(c.req_org) : ""} · ${esc(c.req_email || c.req_phone || "")} · ${esc(c.at ? fdate(c.at) + " " + ftime(c.at) : t("no_time"))}</small></div>
         ${can("calls", "edit") ? `<button class="btn small primary" data-call="${c.id}:planned">${esc(t("accept"))}</button><button class="btn small" data-call="${c.id}:cancelled">${esc(t("decline"))}</button>` : ""}</div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`;
@@ -452,8 +662,10 @@
       body = Object.keys(days).map((k) => `<div class="section-title">${esc(k === td ? t("today") : fdate(k, { weekday: "long", day: "numeric", month: "long" }))}</div><div class="panel" style="padding:4px 12px">${days[k].map(row).join("")}</div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`;
     }
     const tab = (k, label, n) => `<button class="${f.tab === k ? "on" : ""}" data-tab="${k}">${esc(label)}${n != null ? `<span class="count">${n}</span>` : ""}</button>`;
-    return head(S.data.farm.name, t("calls"), "", `<button class="btn" data-act="booklink">${esc(t("copy_link"))}</button>` + newBtn("calls", "new_call", { status: "planned" })) +
-      `<div class="tabs">${tab("upcoming", t("upcoming"), up.length)}${tab("requests", t("requests"), reqs.length)}${tab("due", t("due_call"))}${tab("history", t("history"), hist.length)}</div><div class="rows">${body}</div>`;
+    return head(S.data.farm.name, t("calls"), t("act_sub"), `<button class="btn" data-act="booklink">${esc(t("copy_link"))}</button>` + newBtn("calls", "new_call", { status: "planned", kind: f.kind || "visit" })) +
+      `<div class="tabs">${tab("upcoming", t("upcoming"), up.length)}${tab("requests", t("requests"), reqs.length)}${tab("due", t("due_call"))}${tab("history", t("history"), hist.length)}</div>
+      ${["upcoming", "history"].includes(f.tab) ? `<div class="chips">${kchips.map(([v, l, n]) => `<button class="chip-btn${f.kind === v ? " on" : ""}" data-akind="${v}">${esc(l)}<span class="n">${n}</span></button>`).join("")}</div>` : ""}
+      <div class="rows">${body}</div>`;
   };
 
   PAGES.tasks = () => {
@@ -517,9 +729,13 @@
     const panel = (i, title, inner) => `<div class="panel reveal" style="--i:${i}"><div class="panel-head"><h3>${esc(title)}</h3></div>${inner}</div>`;
     const vt = ENUM.vendor_type.map((tp) => [opt(tp), sum(D.vendors.filter((v) => v.type === tp), "volume_eur")]).filter((r) => r[1]);
     const weeks = {}; (D.feed_days || []).forEach((d) => { weeks[d.operator] = (weeks[d.operator] || 0) + d.loads; });
+    const oc = openCases();
+    const ds = ["valid", "expiring", "expired", "none"].map((k) => [t(k === "none" ? "no_expiry" : k), (D.documents || []).filter((d) => docState(d) === k).length]);
     return head(S.data.farm.name, t("reports"), "") + `<div class="grid halves">
-      ${panel(0, t("rep_pipeline"), bars(ENUM.stage.map((s) => [opt(s), sum(D.deals.filter((d) => d.stage === s), "value")]), (v) => eur(v, true)))}
-      ${panel(1, t("rep_calls"), bars(ENUM.call_status.map((s) => [opt(s), D.calls.filter((c) => c.status === s).length])))}
+      ${panel(0, t("rep_cases"), bars(ENUM.case_kind.map((k) => [opt(k), oc.filter((c) => c.kind === k).length]).filter((r) => r[1])))}
+      ${panel(1, t("rep_calls"), bars(ENUM.call_kind.map((k) => [opt(k), D.calls.filter((c) => (c.kind || "call") === k && c.status !== "cancelled").length])))}
+      ${panel(6, t("rep_docs"), bars(ds))}
+      ${pageVisible("pipeline") ? panel(7, t("rep_pipeline"), bars(ENUM.stage.map((s) => [opt(s), sum(D.deals.filter((d) => d.stage === s), "value")]), (v) => eur(v, true))) : ""}
       ${panel(2, t("rep_cust"), bars(D.customers.filter((c) => c.volume_eur).sort((a, b) => b.volume_eur - a.volume_eur).map((c) => [c.name, c.volume_eur]), (v) => eur(v, true)))}
       ${panel(3, t("rep_vend"), bars(vt.sort((a, b) => b[1] - a[1]), (v) => eur(v, true)))}
       ${panel(4, t("rep_feed"), bars(Object.entries(weeks).map(([op, n]) => [(D.people.find((p) => p.operator_name === op) || {}).name || op, n])))}
@@ -552,6 +768,11 @@
         <div class="toolbar">${can("contacts", "edit") ? `<label class="btn">${esc(t("import_contacts"))}<input type="file" accept=".csv,text/csv" data-import="contacts" hidden></label>` : ""}
         ${ed ? `<label class="btn">${esc(t("import_feed"))}<input type="file" accept=".csv,text/csv" data-import="feed" hidden></label>` : ""}</div></div>
     </div>
+    <div class="panel" style="margin-top:14px"><div class="panel-head"><h3>${esc(t("pages_buttons"))}</h3></div><p class="muted">${esc(t("pb_hint"))}</p>
+      <div class="grid halves"><div><div class="section-title" style="margin-top:0">${esc(t("pages"))}</div><div class="pb-list">
+        ${NAV.filter(([r]) => !["overview", "admin"].includes(r)).map(([r, , ic]) => `<label class="pb"><span class="ni">${ICON[ic]}</span><span>${esc(pageLabel(r))}</span><input type="checkbox" class="switch" data-pb="page:${r}"${pageVisible(r) ? " checked" : ""}${ed ? "" : " disabled"}></label>`).join("")}</div></div>
+        <div><div class="section-title" style="margin-top:0">${esc(t("buttons"))}</div><div class="pb-list">
+        ${TOP_BUTTONS.map((b) => `<label class="pb"><span>${esc(t("btn_" + b))}</span><input type="checkbox" class="switch" data-pb="button:${b}"${buttonVisible(b) ? " checked" : ""}${ed ? "" : " disabled"}></label>`).join("")}</div></div></div></div>
     <div class="panel" style="margin-top:14px"><div class="panel-head"><h3>${esc(t("languages"))}</h3><span class="sub">${miss ? esc(t("missing_n", { n: miss })) : ""}</span></div>
       <div class="toolbar"><label class="muted">${esc(t("default_lang"))} <select class="mini" data-adefault${ed ? "" : " disabled"}>${Object.entries(f.pack.languages).map(([c, x]) => `<option value="${c}"${c === f.pack.default ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</select></label>
         <label class="muted">${esc(t("translate"))} <select class="mini" data-aedit>${Object.entries(f.pack.languages).map(([c, x]) => `<option value="${c}"${c === f.edit ? " selected" : ""}>${esc(x.name)}</option>`).join("")}</select></label>
@@ -627,26 +848,29 @@
   }
 
   /* ================= schedule ================= */
-  const EV_C = { call: "var(--blue)", request: "var(--amber)", task: "var(--amber)", deal: "var(--violet)", project: "var(--green)", contract: "var(--red)" };
+  const EV_C = { call: "var(--blue)", visit: "var(--green)", service: "var(--violet)", inspection: "var(--amber)", meeting: "var(--faint)", request: "var(--amber)",
+    task: "var(--amber)", deal: "var(--violet)", project: "var(--green)", contract: "var(--red)", case: "var(--red)" };
+  const evLabel = (type) => ENUM.call_kind.includes(type) ? opt(type) : type === "request" ? opt("requested") : t("ev_" + type);
   function schedEvents() {
     const D = S.data, out = [];
-    D.calls.filter((c) => c.at && c.status !== "cancelled").forEach((c) => out.push({ date: c.at.slice(0, 10), time: ftime(c.at), type: c.status === "requested" ? "request" : "call", title: c.topic, sub: (byId("customers", c.customer_id) || {}).name || c.req_org || "", open: "calls:" + c.id, owner: c.owner_id, done: c.status === "done" }));
+    D.calls.filter((c) => c.at && c.status !== "cancelled").forEach((c) => out.push({ date: c.at.slice(0, 10), time: ftime(c.at), type: c.status === "requested" ? "request" : (c.kind || "call"), title: c.topic, sub: partnerName(c) || c.req_org || c.place || "", open: "calls:" + c.id, owner: c.owner_id, done: c.status === "done" }));
     D.tasks.filter((x) => x.deadline && !["done", "confirmed"].includes(x.status)).forEach((x) => out.push({ date: x.deadline, type: "task", title: x.title, open: "tasks:" + x.id, owner: x.owner_id }));
-    D.deals.filter((x) => x.expected && !["won", "lost"].includes(x.stage)).forEach((x) => out.push({ date: x.expected, type: "deal", title: x.title, sub: eur(x.value), open: "deals:" + x.id, owner: x.owner_id }));
+    (D.cases || []).filter((c) => c.due && !["resolved", "closed"].includes(c.status)).forEach((c) => out.push({ date: c.due, type: "case", title: c.title, sub: opt(c.priority), open: "cases:" + c.id, owner: c.owner_id }));
+    if (pageVisible("pipeline")) D.deals.filter((x) => x.expected && !["won", "lost"].includes(x.stage)).forEach((x) => out.push({ date: x.expected, type: "deal", title: x.title, sub: eur(x.value), open: "deals:" + x.id, owner: x.owner_id }));
     D.projects.filter((p) => p.due && p.status !== "done").forEach((p) => out.push({ date: p.due, type: "project", title: p.title, sub: progressOf(p.id).pct + "%", open: "projects:" + p.id, owner: p.owner_id }));
     D.vendors.filter((v) => v.contract_end).forEach((v) => out.push({ date: v.contract_end, type: "contract", title: v.name, open: "vendors:" + v.id, owner: v.owner_id }));
     return out;
   }
   const isoOf = (dt) => `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`;
   const monday = (iso) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d; };
-  const evPill = (e) => `<button class="ev" style="--c:${EV_C[e.type]}" data-open="${e.open}" title="${esc(t("ev_" + (e.type === "request" ? "call" : e.type)))}: ${esc(e.title)}">${e.time ? `<b>${esc(e.time)}</b> ` : ""}${esc(e.title)}</button>`;
+  const evPill = (e) => `<button class="ev" style="--c:${EV_C[e.type]}" data-open="${e.open}" title="${esc(evLabel(e.type))}: ${esc(e.title)}">${e.time ? `<b>${esc(e.time)}</b> ` : ""}${esc(e.title)}</button>`;
 
   PAGES.schedule = () => {
     const D = S.data, td = today(), f = S.f.schedule || (S.f.schedule = { view: "week", anchor: td, who: "" });
     const evs = schedEvents().filter((e) => !f.who || e.owner === Number(f.who));
     const todayLeft = evs.filter((e) => e.date === td && !e.done).length;
     const owners = [...new Set(schedEvents().map((e) => e.owner).filter(Boolean))];
-    const legend = ["call", "task", "deal", "project", "contract"].map((k) => `<span class="lg"><i style="background:${EV_C[k]}"></i>${esc(t("ev_" + k))}</span>`).join("");
+    const legend = ["call", "visit", "service", "inspection", "task", "project", "case", "contract"].map((k) => `<span class="lg"><i style="background:${EV_C[k]}"></i>${esc(evLabel(k))}</span>`).join("");
     let body = "", rangeTitle = "";
     if (f.view === "month") {
       const a = new Date(f.anchor + "T12:00:00"), first = new Date(a.getFullYear(), a.getMonth(), 1, 12), start = monday(isoOf(first));
@@ -661,7 +885,7 @@
       const days = {}; evs.filter((e) => e.date >= from && e.date <= upto).sort((a, b) => (a.date + (a.time || "00")).localeCompare(b.date + (b.time || "00"))).forEach((e) => (days[e.date] = days[e.date] || []).push(e));
       rangeTitle = `${fdate(from, { day: "numeric", month: "short" })} – ${fdate(upto, { day: "numeric", month: "short", year: "numeric" })}`;
       body = Object.keys(days).map((k) => `<div class="section-title">${esc(k === td ? t("today") : fdate(k, { weekday: "long", day: "numeric", month: "long" }))}</div>
-        <div class="panel" style="padding:4px 12px">${days[k].map((e) => `<div class="row-item click" data-open="${e.open}"><span class="dot" style="background:${EV_C[e.type]}"></span><span class="badge">${esc(e.time || t("ev_" + (e.type === "request" ? "call" : e.type)))}</span><div class="main"><b>${esc(e.title)}</b><small>${esc(e.sub || "")}${e.owner ? " · " + esc(personName(e.owner)) : ""}</small></div></div>`).join("")}</div>`).join("") || `<div class="empty">${esc(t("nothing"))}</div>`;
+        <div class="panel" style="padding:4px 12px">${days[k].map((e) => `<div class="row-item click" data-open="${e.open}"><span class="dot" style="background:${EV_C[e.type]}"></span><span class="badge">${esc(e.time || evLabel(e.type))}</span><div class="main"><b>${esc(e.title)}</b><small>${esc(e.sub || "")}${e.owner ? " · " + esc(personName(e.owner)) : ""}</small></div></div>`).join("")}</div>`).join("") || `<div class="empty">${esc(t("nothing"))}</div>`;
     } else {
       const mon = monday(f.anchor), days = [...Array(7)].map((_, i) => { const d = new Date(mon); d.setDate(mon.getDate() + i); return d; });
       rangeTitle = `${days[0].toLocaleDateString(locale(), { day: "numeric", month: "short" })} – ${days[6].toLocaleDateString(locale(), { day: "numeric", month: "short", year: "numeric" })}`;
@@ -677,7 +901,7 @@
             ${evs.filter((e) => e.date === iso && e.time).map((e) => { const [h, m] = e.time.split(":").map(Number); const top = Math.max(0, (h + m / 60 - H0) * PX);
               return `<button class="wk-ev" style="top:${top}px;--c:${EV_C[e.type]}" data-open="${e.open}"><b>${esc(e.title)}</b><small>${esc(e.time)}${e.sub ? " · " + esc(e.sub) : ""}</small></button>`; }).join("")}</div>`; }).join("")}</div></div>`;
     }
-    const tab = (k) => `<button class="${f.view === k ? "on" : ""}" data-sview="${k}">${esc({ week: "Week", month: "Month", agenda: "Agenda" }[k])}</button>`;
+    const tab = (k) => `<button class="${f.view === k ? "on" : ""}" data-sview="${k}">${esc(t("v_" + k))}</button>`;
     return head(fdate(td, { weekday: "long", day: "numeric", month: "long" }) + " · " + todayLeft + " " + t("today").toLowerCase(), t("schedule"), t("sch_sub"),
         newBtn("calls", "new_call", { status: "planned", at: td + " 10:00" })) + `
       <div class="tabs">${tab("week")}${tab("month")}${tab("agenda")}</div>
@@ -691,6 +915,7 @@
     const D = S.data, td = today();
     const calls = D.calls.filter((c) => c.at && c.at.slice(0, 10) === td && ["planned", "done", "missed"].includes(c.status)).sort((a, b) => a.at.localeCompare(b.at));
     const tasks = D.tasks.filter((x) => !["done", "confirmed"].includes(x.status) && (x.prio === "urgent" || (x.deadline && x.deadline <= td)));
+    const tcases = openCases().filter((c) => c.priority === "high" || (c.due && c.due <= td));
     const reqs = D.calls.filter((c) => c.status === "requested");
     const steps = D.projects.filter((p) => ["active", "review"].includes(p.status)).map((p) => ({ p, s: progressOf(p.id).cur })).filter((x) => x.s);
     const contracts = D.vendors.filter((v) => v.contract_end && daysBetween(td, v.contract_end) >= 0 && daysBetween(td, v.contract_end) <= 30);
@@ -702,6 +927,7 @@
         ${panel(0, t("calls_today"), calls.length, calls.map((c) => `<div class="row-item"><span class="badge ${c.status === "done" ? "green" : c.status === "missed" ? "red" : "blue"}">${esc(ftime(c.at))}</span><div class="main click" data-open="calls:${c.id}"><b>${esc(c.topic)}</b><small>${esc((byId("customers", c.customer_id) || {}).name || "")}</small></div>
           ${ce && c.status === "planned" ? `<button class="btn small" data-call="${c.id}:done">${esc(opt("done"))}</button><button class="btn small" data-call="${c.id}:missed">${esc(opt("missed"))}</button>` : `<span class="muted">${esc(opt(c.status))}</span>`}</div>`).join(""))}
         ${panel(1, t("tasks_due"), tasks.length, tasks.map((x) => `<div class="row-item"><span class="dot ${x.prio}"></span><div class="main click" data-open="tasks:${x.id}"><b>${esc(x.title)}</b><small>${x.deadline ? esc(fdate(x.deadline)) + (x.deadline < td ? " · " + esc(t("late")) : "") : esc(opt(x.prio))}${x.owner_id ? " · " + esc(personName(x.owner_id)) : ""}</small></div>${te ? `<button class="btn small" data-tstat="${x.id}:done">${esc(t("mark_done"))}</button>` : ""}</div>`).join(""))}
+        ${panel(6, t("open_cases_list"), tcases.length, tcases.map((c) => `<div class="row-item click" data-open="cases:${c.id}"><span class="badge ${PRIO_C[c.priority]}">${esc(opt(c.priority))}</span><div class="main"><b>${esc(c.title)}</b><small>${esc(opt(c.kind))}${c.due ? " · " + esc(t("due")) + " " + esc(fdate(c.due, { day: "numeric", month: "short" })) : ""}${c.owner_id ? " · " + esc(personName(c.owner_id)) : ""}</small></div><span class="badge ${CST_C[c.status]}">${esc(opt(c.status))}</span></div>`).join(""))}
         ${panel(2, t("requests"), reqs.length, reqs.map((c) => `<div class="row-item"><div class="ico-box">${ICON.inbox}</div><div class="main"><b>${esc(c.topic)}</b><small>${esc(c.req_name)} · ${esc(c.req_org || "")}</small></div>${ce ? `<button class="btn small primary" data-call="${c.id}:planned">${esc(t("accept"))}</button>` : ""}</div>`).join(""))}
         ${panel(3, t("steps_next"), steps.length, steps.map(({ p, s }) => `<div class="row-item"><label class="tick"><input type="checkbox" data-step="${s.id}"${pe ? "" : " disabled"}></label><div class="main click" data-open="projects:${p.id}"><b>${esc(s.title)}</b><small>${esc(p.title)} · ${progressOf(p.id).pct}%</small></div>${s.owner_id ? ava(personName(s.owner_id)) : ""}</div>`).join(""))}
         ${panel(4, t("contracts_soon"), contracts.length, contracts.map((v) => `<div class="row-item click" data-open="vendors:${v.id}"><div class="ico-box">${ICON.truck}</div><div class="main"><b>${esc(v.name)}</b><small>${esc(fdate(v.contract_end))}</small></div><span class="badge ${daysBetween(td, v.contract_end) <= 14 ? "red" : "amber"}">${esc(t("ends_in", { n: daysBetween(td, v.contract_end) }))}</span></div>`).join(""))}
@@ -758,6 +984,10 @@
     if (contracts) out.push([ICON.truck, t("n_contracts", { n: contracts }), "today"]);
     if (prj) out.push([ICON.task, t("n_projects", { n: prj }), "projects"]);
     if (missed) out.push([ICON.phone, t("n_missed", { n: missed }), "calls"]);
+    const hc = openCases().filter((c) => c.priority === "high").length;
+    const dx = (D.documents || []).filter((d) => ["expiring", "expired"].includes(docState(d))).length;
+    if (hc) out.unshift([ICON.alert, t("n_cases", { n: hc }), "cases"]);
+    if (dx) out.push([ICON.doc, t("n_docs", { n: dx }), "documents"]);
     return out;
   }
   function openSearch() {
@@ -771,6 +1001,8 @@
     add("contacts", D.contacts, "name", (x) => orgName(x.org_kind, x.org_id) || "", ICON.users); add("deals", D.deals, "title", (x) => opt(x.stage), ICON.euro);
     add("projects", D.projects, "title", (x) => opt(x.status), ICON.task); add("tasks", D.tasks, "title", (x) => opt(x.prio), ICON.task);
     add("people", D.people, "name", (x) => x.job || "", ICON.users);
+    add("cases", D.cases || [], "title", (x) => opt(x.kind) + " · " + opt(x.status), ICON.alert);
+    add("documents", D.documents || [], "title", (x) => opt(x.kind), ICON.doc);
     $("#pal-res").innerHTML = res.slice(0, 12).map((r) => `<div class="row-item click" data-open="${r.open}" data-palette><div class="ico-box">${r.icon}</div><div class="main"><b>${esc(r.title)}</b><small>${esc(r.sub)}</small></div></div>`).join("") || `<div class="empty">${esc(t("none_here"))}</div>`;
   }
   function exportCSV(entity) {
@@ -786,25 +1018,47 @@
   }
 
   /* ================= render ================= */
-  const NAV = [["overview", "overview"], ["pipeline", "pipeline"], ["customers", "customers"], ["vendors", "vendors"], ["contacts", "contacts"], ["schedule", "calls"], ["projects", "projects"], ["tasks", "tasks"], ["workers", "people"], ["reports", "reports"]];
+  /* Sidebar: page groups. [route, permission module, icon] */
+  const NAV_GROUPS = [
+    ["grp_main", [["overview", "overview", "grid"], ["today", "overview", "sun"], ["schedule", "calls", "calendar"]]],
+    ["grp_production", [["workers", "people", "users"], ["projects", "projects", "layers"], ["tasks", "tasks", "task"], ["cases", "cases", "alert"], ["documents", "documents", "doc"]]],
+    ["grp_partners", [["customers", "customers", "euro"], ["vendors", "vendors", "truck"], ["contacts", "contacts", "users"], ["calls", "calls", "phone"], ["pipeline", "pipeline", "chart"]]],
+    ["grp_insights", [["reports", "reports", "chart"], ["email", "email", "mail"]]],
+    ["grp_settings", [["roles", "roles", "shield"], ["admin", "admin", "gear"]]],
+  ];
+  const NAV = NAV_GROUPS.flatMap(([, items]) => items);
   const PERM_OF = { overview: "overview", customers: "customers", vendors: "vendors", contacts: "contacts", pipeline: "pipeline", calls: "calls", schedule: "calls", projects: "projects",
-    tasks: "tasks", workers: "people", reports: "reports", roles: "roles", admin: "admin", today: "overview", email: "email" };
+    tasks: "tasks", workers: "people", reports: "reports", roles: "roles", admin: "admin", today: "overview", email: "email", cases: "cases", documents: "documents" };
+  const TOP_BUTTONS = ["search", "new", "today", "email", "booklink", "bell", "lang", "theme"];
+  const ui = () => S.data.ui || { hidden_pages: ["pipeline"], hidden_buttons: [] };
+  // Admin can hide pages for everyone; Overview and Admin always stay so nobody locks themselves out
+  const pageVisible = (r) => r === "overview" || r === "admin" || !ui().hidden_pages.includes(r);
+  const buttonVisible = (b) => !ui().hidden_buttons.includes(b);
+  const pageLabel = (r) => t(r === "today" ? "today_page" : r);
 
   function render() {
     const D = S.data;
     document.documentElement.lang = lang;
     $("#farm-name").textContent = D.farm.name;
     const reqs = D.calls.filter((c) => c.status === "requested").length;
-    $("#nav").innerHTML = NAV.filter(([r, m]) => can(m)).map(([r]) => `<a href="#/${r}" class="${S.route === r ? "on" : ""}">${esc(t(r))}${r === "schedule" && reqs ? `<span class="count">${reqs}</span>` : ""}</a>`).join("");
+    const badge = { calls: reqs, cases: openCases().filter((c) => c.priority === "high").length };
+    $("#nav").innerHTML = NAV_GROUPS.map(([g, items]) => {
+      const vis = items.filter(([r, m]) => can(m) && pageVisible(r));
+      return vis.length ? `<div class="nav-group"><div class="nav-h">${esc(t(g))}</div>${vis.map(([r, , ic]) => `<a href="#/${r}" class="${S.route === r ? "on" : ""}" title="${esc(pageLabel(r))}"><span class="ni">${ICON[ic]}</span><span class="nl">${esc(pageLabel(r))}</span>${badge[r] ? `<span class="count">${badge[r]}</span>` : ""}</a>`).join("")}</div>` : "";
+    }).join("");
+    const grp = NAV_GROUPS.find(([, items]) => items.some(([r]) => r === S.route));
+    $("#crumb").innerHTML = `${grp ? `<span class="muted">${esc(t(grp[0]))} /</span> ` : ""}<b>${esc(pageLabel(S.route))}</b>`;
+    TOP_BUTTONS.forEach((b) => $$(`[data-tb="${b}"]`).forEach((el) => { el.hidden = !buttonVisible(b) || (b === "email" && (!can("email") || !pageVisible("email"))) || (b === "today" && !pageVisible("today")); }));
     const nn = notifications().length;
     $("#bell").innerHTML = `${ICON.bell}${nn ? `<span class="dot-n">${nn}</span>` : ""}`;
-    $$("#rail [data-go]").forEach((b) => b.classList.toggle("on", b.dataset.go === S.route));
-    $$("#rail [data-go]").forEach((b) => { b.hidden = !can(PERM_OF[b.dataset.go] || b.dataset.go); });
     $("#me").textContent = initials(D.me.name);
     $("#lang").innerHTML = Object.entries(LANG.languages).map(([c, L]) => `<option value="${c}"${c === lang ? " selected" : ""}>${esc(L.name)}</option>`).join("");
+    $("#pin").title = t(document.body.classList.contains("side-pinned") ? "unpin" : "pin");
+    const sl = $(".tb-search span"); if (sl) sl.textContent = t("search");
+    const pl = $("#pin .nl"); if (pl) pl.textContent = t(document.body.classList.contains("side-pinned") ? "unpin" : "pin");
     const perm = PERM_OF[S.route];
     const page = PAGES[S.route];
-    const html = !page || !can(perm) ? `<p class="muted">${esc(t("no_access"))}</p>` : page();
+    const html = !page || !can(perm) || !pageVisible(S.route) ? `<p class="muted">${esc(t("no_access"))}</p>` : page();
     $("#view").innerHTML = `<div class="page">${html}</div>`;
     countUp($("#view"));
     if (page && page.after && can(perm)) page.after();
@@ -812,8 +1066,8 @@
 
   function route() {
     const r = (location.hash.replace(/^#\/?/, "") || "").split("/")[0];
-    const first = NAV.find(([x, m]) => can(m)) || ["admin"];
-    S.route = PAGES[r] && can(PERM_OF[r]) ? r : first[0];
+    const first = NAV.find(([x, m]) => can(m) && pageVisible(x)) || ["admin"];
+    S.route = PAGES[r] && can(PERM_OF[r]) && pageVisible(r) ? r : first[0];
     render();
   }
 
@@ -826,12 +1080,18 @@
 
   /* ================= events ================= */
   document.addEventListener("click", async (e) => {
-    const el = e.target.closest("[data-close],[data-open],[data-new],[data-go],[data-act],[data-chip],[data-fav],[data-star],[data-due],[data-owner],[data-tab],[data-call],[data-level],[data-tile],[data-tstat],[data-save],[data-del],[data-saverole],[data-newrole],[data-savefarm],[data-rmsample],[data-addlang],[data-savelang],[data-pstatus],[data-stepdel],[data-stepadd],[data-updadd],[data-sview],[data-snav],[data-swho],[data-day],[data-mail],[data-export],[data-writemail],#me,#bell,#theme,a[data-logout]");
+    const el = e.target.closest("[data-close],[data-open],[data-new],[data-go],[data-act],[data-chip],[data-fav],[data-star],[data-due],[data-owner],[data-tab],[data-call],[data-level],[data-tile],[data-tstat],[data-save],[data-del],[data-saverole],[data-newrole],[data-savefarm],[data-rmsample],[data-addlang],[data-savelang],[data-pstatus],[data-stepdel],[data-stepadd],[data-updadd],[data-sview],[data-snav],[data-swho],[data-day],[data-mail],[data-export],[data-writemail],[data-cstatus],[data-dkind],[data-dstate],[data-akind],#me,#bell,#theme,#pin,a[data-logout]");
     if (!el) { if (!e.target.closest(".menu")) $$(".menu").forEach((m) => m.remove()); return; }
     if (e.target.closest("input[type=checkbox][data-step]")) return;   // handled on change
+    if (e.target.closest("a[data-stop]")) return;                      // plain links inside clickable rows
     const d = el.dataset;
     try {
       if ("close" in d) return closeDrawer();
+      if ("cstatus" in d) { S.f.cases.status = d.cstatus; return render(); }
+      if ("dkind" in d) { S.f.documents.kind = d.dkind; return render(); }
+      if ("dstate" in d) { S.f.documents.state = S.f.documents.state === d.dstate ? "" : d.dstate; return render(); }
+      if ("akind" in d) { S.f.calls.kind = d.akind; return render(); }
+      if (el.id === "pin") { const on = !document.body.classList.contains("side-pinned"); document.body.classList.toggle("side-pinned", on); store.set("pinned", on); return render(); }
       if ("pstatus" in d) { S.f.projects.status = d.pstatus; return render(); }
       if (d.stepdel) { await api("DELETE", `/api/project_steps/${d.stepdel}`); return refreshDrawer(); }
       if (d.stepadd) {
@@ -881,7 +1141,8 @@
       if (d.new) { e.preventDefault(); return openForm(d.new, null, d.preset ? JSON.parse(d.preset) : {}); }
       if (d.go) { location.hash = "#/" + d.go; return; }
       if (d.act === "search") return openSearch();
-      if (d.act === "new") { const ent = { customers: "customers", vendors: "vendors", contacts: "contacts", pipeline: "deals", calls: "calls", schedule: "calls", workers: "people", projects: "projects" }[S.route] || "tasks"; return openForm(ent, null, {}); }
+      if (d.act === "new") { const ent = { customers: "customers", vendors: "vendors", contacts: "contacts", pipeline: "deals", calls: "calls", schedule: "calls", workers: "people", projects: "projects", cases: "cases", documents: "documents" }[S.route] || "tasks";
+        return openForm(ent, null, ent === "cases" ? { status: "open", priority: "medium", opened: today() } : ent === "calls" ? { status: "planned", kind: "visit" } : {}); }
       if (d.act === "booklink") { const url = new URL("book.html", location.href).href; try { await navigator.clipboard.writeText(url); toast(t("link_copied") + " " + url); } catch (x) { toast(url); } return; }
       if (d.chip) { S.f[d.chip].type = d.v; return render(); }
       if (d.fav) { S.f[d.fav].fav = !S.f[d.fav].fav; return render(); }
@@ -959,6 +1220,14 @@
     }
     if (el.id === "lang") { lang = el.value; store.set("lang", lang); return render(); }
     if ("towner" in el.dataset) { S.f.tasks.owner = el.value; return render(); }
+    if ("ckind" in el.dataset) { S.f.cases.kind = el.value; return render(); }
+    if (el.dataset && el.dataset.pb) {
+      const cur = ui(), [kind, key] = el.dataset.pb.split(":"), field = kind === "page" ? "hidden_pages" : "hidden_buttons";
+      const next = { hidden_pages: cur.hidden_pages.slice(), hidden_buttons: cur.hidden_buttons.slice() };
+      next[field] = el.checked ? next[field].filter((x) => x !== key) : next[field].concat([key]);
+      try { S.data.ui = await api("POST", "/api/settings/ui", next); toast(t("saved")); render(); } catch (err) { el.checked = !el.checked; toast(err.message, true); }
+      return;
+    }
     if ("adefault" in el.dataset) { S.f.admin.pack.default = el.value; return; }
     if ("aedit" in el.dataset) { S.f.admin.edit = el.value; return render(); }
     if ("amissing" in el.dataset) { S.f.admin.missing = el.checked; return render(); }
@@ -1025,6 +1294,18 @@
     const head = split(lines[0]);
     return lines.slice(1).map((l) => { const v = split(l); const o = {}; head.forEach((h, i) => (o[h] = v[i] || "")); return o; });
   }
+
+  // Sidebar: opens while the mouse is over it (the page moves right with it); the pin keeps it open.
+  (function sidebar() {
+    const side = $("#side"); if (!side) return;
+    if (store.get("pinned", false)) document.body.classList.add("side-pinned");
+    document.documentElement.classList.remove("pin-early");
+    let timer = null;
+    side.addEventListener("mouseenter", () => { clearTimeout(timer); document.body.classList.add("side-open"); });
+    side.addEventListener("mouseleave", () => { timer = setTimeout(() => document.body.classList.remove("side-open"), 120); });
+    side.addEventListener("focusin", () => document.body.classList.add("side-open"));
+    side.addEventListener("focusout", () => document.body.classList.remove("side-open"));
+  })();
 
   window.addEventListener("hashchange", route);
 
